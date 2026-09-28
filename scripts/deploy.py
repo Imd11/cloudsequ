@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Publish the fetched main commit using this Mac's private SSH deployment key."""
-import os, pathlib, shlex, subprocess, tempfile
+import os, pathlib, shlex, subprocess, tempfile, urllib.request
 REPO = pathlib.Path(__file__).resolve().parents[1]
 SITE = "cloudsequ"
 DOMAIN = "cloudsequ.com"
@@ -36,7 +36,9 @@ try:
         operator.write_bytes(subprocess.check_output(["git", "show", sha + ":scripts/release.sh"]))
         run(["scp", *options, str(archive), str(operator), host + ":" + remote + "/"])
         ssh("bash " + shlex.quote(remote + "/release.sh") + " " + " ".join(map(shlex.quote, [SITE, DOMAIN, sha, remote])))
-    run(["curl", "--fail", "--silent", "--show-error", "--max-time", "30", "https://" + DOMAIN + "/", "-o", os.devnull])
+    with urllib.request.urlopen("https://" + DOMAIN + "/", timeout=30) as response:
+        if response.status != 200:
+            raise SystemExit(f"Public HTTPS returned {response.status}; inspect the deployed version.")
     print(f"Verified public HTTPS: https://{DOMAIN}/ — {sha}", flush=True)
 finally:
     ssh("rm -rf -- " + shlex.quote(remote))
