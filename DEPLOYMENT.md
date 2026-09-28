@@ -14,4 +14,4 @@ the web root. Review employee portal authentication before exposing it publicly:
 its current browser password/localStorage checks are not server-side authorization.
 
 The FDE repository contains the Nginx preview configuration and Node/PostgreSQL setup.
-Public DNS and HTTPS are pending ICP filing. Preserve all existing email DNS records.
+Public DNS and HTTPS were enabled on 2026-09-28. ICP filing remains outstanding; current reachability is not a guarantee of continued provider access. Existing email DNS records were preserved.
