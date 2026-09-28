@@ -1,5 +1,10 @@
 @font-face{font-family:"Xudong Display";src:url('/brand/xudong-wordmark.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
-.xudong-wordmark{color:#294638;font-family:"Xudong Display",sans-serif;font-size:28px;letter-spacing:2px;line-height:1;font-weight:400;white-space:nowrap}
+.xudong-wordmark{color:#111111;font-family:"Xudong Display",sans-serif;font-size:28px;letter-spacing:2px;line-height:1;font-weight:400;white-space:nowrap}
 .language-menu,.lang-switch,.lang-toggle,.lang-btn{display:none!important}
 body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
 @media(max-width:640px){.xudong-wordmark{font-size:25px;letter-spacing:1.5px}.hero-title{line-height:1.25!important}}
+
+/* Approved cloud-motion concept 19, paired with the existing FDE font. */
+.xudong-symbol{display:inline-block;width:72px;height:36px;object-fit:contain;flex:none;mix-blend-mode:multiply}
+.nav-logo,.portal-nav-logo,.footer-brand-text{display:flex;align-items:center;gap:10px}
+@media(max-width:640px){.xudong-symbol{width:60px;height:30px}.nav-logo,.portal-nav-logo{gap:7px}}
