@@ -5,6 +5,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 @media(max-width:640px){.xudong-wordmark{font-size:25px;letter-spacing:1.5px}.hero-title{line-height:1.25!important}}
 
 /* Approved cloud-motion concept 19, paired with the existing FDE font. */
-.xudong-symbol{display:inline-block;width:72px;height:36px;object-fit:contain;flex:none;mix-blend-mode:multiply}
-.nav-logo,.portal-nav-logo,.footer-brand-text{display:flex;align-items:center;gap:4px}
-@media(max-width:640px){.xudong-symbol{width:60px;height:30px}.nav-logo,.portal-nav-logo{gap:3px}}
+.xudong-symbol{display:inline-block;width:72px;height:36px;object-fit:contain;flex:none;mix-blend-mode:multiply;margin-right:-3px}
+body .nav-logo,body.mf-site .nav-logo,body .portal-nav-logo,body .footer-brand-text{display:flex;align-items:center;gap:2px}
+@media(max-width:640px){.xudong-symbol{width:60px;height:30px;margin-right:-2px}}
