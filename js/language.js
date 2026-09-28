@@ -8,8 +8,8 @@
     olivewolf: 'olivewolf-lang'
   };
   var NAV_LABELS = {
-    en: { about: 'About', products: 'Products', manifesto: 'Manifesto', club: 'AI Club' },
-    zh: { about: '关于我们', products: '产品', manifesto: '我们的主张', club: 'AI Club' }
+    en: { about: 'About', products: 'Products', manifesto: 'Manifesto', club: 'AI 研习社' },
+    zh: { about: '关于我们', products: '产品', manifesto: '我们的主张', club: 'AI 研习社' }
   };
   var pendingTimer;
 
@@ -33,27 +33,7 @@
     return parts[parts.length - 1] || '';
   }
 
-  function readStoredLanguage() {
-    try {
-      var stored = localStorage.getItem(STORAGE_KEY);
-      if (stored === 'en' || stored === 'zh' || stored === 'zh-CN') return normalize(stored);
-
-      var routeKey = LEGACY_KEYS[currentRoute()];
-      var legacyOrder = routeKey
-        ? [routeKey].concat(Object.values(LEGACY_KEYS).filter(function (key) { return key !== routeKey; }))
-        : Object.values(LEGACY_KEYS);
-
-      for (var i = 0; i < legacyOrder.length; i += 1) {
-        var legacy = localStorage.getItem(legacyOrder[i]);
-        if (legacy === 'en' || legacy === 'zh' || legacy === 'zh-CN') {
-          stored = normalize(legacy);
-          localStorage.setItem(STORAGE_KEY, stored);
-          return stored;
-        }
-      }
-    } catch (error) {}
-    return 'en';
-  }
+  function readStoredLanguage() { return 'zh'; }
 
   function clearLegacyKeys() {
     try {
@@ -62,7 +42,7 @@
   }
 
   function set(lang) {
-    var normalized = normalize(lang);
+    var normalized = 'zh';
     try {
       localStorage.setItem(STORAGE_KEY, normalized);
       clearLegacyKeys();

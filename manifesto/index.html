@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
 <script src="../js/language.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Miraphant Manifesto — Our positions on AI safety, scaling, and application-layer value.">
+<meta name="description" content="序动科技专注企业 AI 应用，让想法成为可用的产品，帮助团队将 AI 融入日常工作。">
 <link rel="canonical" href="https://cloudsequ.com/manifesto/">
-<title>Our Manifesto — Miraphant</title>
+<title>我们的主张｜序动科技</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,23 +143,21 @@
   }
 </style>
 <link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="/css/brand.css">
 </head>
 <body class="mf-site page-editorial page-manifesto">
 
-<nav id="nav" aria-label="Primary">
+<nav id="nav" aria-label="主导航">
   <div class="container nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="../logo.png" alt="Miraphant" class="nav-logo-mark" style="width:32px;height:32px">
-      Miraphant
-    </a>
+    <a href="/" class="nav-logo" aria-label="序动科技首页"><span class="xudong-wordmark">序动科技</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/about/" data-nav="about">About</a></li>
-      <li><a href="/#products" data-nav="products">Products</a></li>
-      <li><a href="/manifesto/" data-nav="manifesto">Manifesto</a></li>
-      <li><a href="/ai-club/" data-nav="club">AI Club</a></li>
+      <li><a href="/about/" data-nav="about">关于我们</a></li>
+      <li><a href="/#products" data-nav="products">产品</a></li>
+      <li><a href="/manifesto/" data-nav="manifesto">我们的主张</a></li>
+      <li><a href="/ai-club/" data-nav="club">AI 研习社</a></li>
     </ul>
     <div class="nav-right">
-      <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
     </div>
   </div>
 </nav>
@@ -167,12 +165,9 @@
 <section class="manifesto-hero">
   <div class="container">
     <div class="reveal">
-      <div class="label" data-i18n="hero.label">Our Manifesto</div>
-      <h1 data-i18n="hero.title">Our Positions</h1>
-      <p class="sub" data-i18n="hero.sub">
-        The AI industry is at a crossroads. Below are our positions on the defining questions —
-        where we agree with the frontier, where we diverge, and where we believe the real opportunity lies.
-      </p>
+      <div class="label" data-i18n="hero.label">我们的主张</div>
+      <h1 data-i18n="hero.title">我们的立场</h1>
+      <p class="sub" data-i18n="hero.sub">AI 行业正站在十字路口。以下是我们对关键问题的立场——我们与前沿实验室的共识在哪里，分歧在哪里，以及我们认为真正的机会在哪里。</p>
     </div>
   </div>
 </section>
@@ -182,132 +177,65 @@
 
     <!-- 01 -->
     <section class="reveal">
-      <h2><span class="num">01</span><span data-i18n="s1.title">Safety is not optional — but neither is paralysis</span></h2>
-      <p data-i18n="s1.p1">
-        We respect Anthropic's Responsible Scaling Policy and Constitutional AI. The principle that
-        safeguards must scale proportionally with capabilities is sound. A tiered framework — where
-        stronger models trigger stronger guardrails — is the right architecture.
-      </p>
-      <div class="quote" data-i18n="s1.quote">
-        "Safe AI is a superior product."
-        <span class="source">— Anthropic</span>
-      </div>
-      <p data-i18n="s1.p2">
-        We agree. But we'd add: <strong>safe AI that never ships is not a product at all.</strong>
-        The frontier labs obsess over what might go wrong. We obsess equally over what goes right
-        when intelligence reaches real people. Safety without deployment is theory. Deployment
-        without safety is recklessness. We choose both.
-      </p>
+      <h2><span class="num">01</span><span data-i18n="s1.title">安全不是可选项——但停滞也不是</span></h2>
+      <p data-i18n="s1.p1">我们尊重 Anthropic 的负责任扩展政策（RSP）和宪法 AI（Constitutional AI）。保障措施应与能力同比增长的原则是合理的。分层框架——更强的模型触发更强的护栏——是正确的架构。</p>
+      <div class="quote" data-i18n="s1.quote">"安全的 AI 是更好的产品。" —— Anthropic</div>
+      <p data-i18n="s1.p2">我们同意。但要补充一句：永不交付的安全 AI 根本不是产品。前沿实验室痴迷于可能出错的地方。我们同样痴迷于智能到达真实用户后做对了什么。不部署的安全只是理论，不安全的部署只是鲁莽。我们选择两者兼顾。</p>
     </section>
 
     <!-- 02 -->
     <section class="reveal">
-      <h2><span class="num">02</span><span data-i18n="s2.title">The model is the brain. The application is the body.</span></h2>
-      <p data-i18n="s2.p1">
-        Anthropic builds one of the world's best brains — Claude. We don't compete with that.
-        We compete on the body: the applications, interfaces, and infrastructure that turn
-        intelligence into action.
-      </p>
-      <p data-i18n="s2.p2">
-        A brain without a body can't lift anything. The most powerful model in the world,
-        trapped behind an API, helps only those who know how to call it. Our job is to build
-        the hands and feet — so that intelligence reaches every desk, every workflow, every
-        person who needs it.
-      </p>
+      <h2><span class="num">02</span><span data-i18n="s2.title">模型是大脑，应用是身体</span></h2>
+      <p data-i18n="s2.p1">Anthropic 造了世界上最好的大脑之一——Claude。我们不与之竞争。我们在身体上竞争：将智能转化为行动的应用、界面和基础设施。</p>
+      <p data-i18n="s2.p2">没有身体的大脑什么也搬不动。世界上最强大的模型，困在 API 后面，只能帮到知道怎么调用它的人。我们的工作是造手和脚——让智能到达每张办公桌、每个工作流、每个需要它的人。</p>
       <div class="compare-block">
         <div class="compare-side theirs">
-          <div class="side-label" data-i18n="s2.theirs.label">Frontier Labs</div>
-          <h3 data-i18n="s2.theirs.title">Build a better brain</h3>
-          <p data-i18n="s2.theirs.desc">Compete on parameters, benchmarks, context windows. Value measured in capability scores.</p>
+          <div class="side-label" data-i18n="s2.theirs.label">前沿实验室</div>
+          <h3 data-i18n="s2.theirs.title">造更好的大脑</h3>
+          <p data-i18n="s2.theirs.desc">在参数、基准、上下文窗口上竞争。价值以能力评分衡量。</p>
         </div>
         <div class="compare-side ours">
-          <div class="side-label" data-i18n="s2.ours.label">Miraphant</div>
-          <h3 data-i18n="s2.ours.title">Build a better body</h3>
-          <p data-i18n="s2.ours.desc">Compete on experience, outcomes, adoption. Value measured in tasks completed and hours saved.</p>
+          <div class="side-label" data-i18n="s2.ours.label">序动科技</div>
+          <h3 data-i18n="s2.ours.title">造更好的身体</h3>
+          <p data-i18n="s2.ours.desc">在体验、结果、采用率上竞争。价值以完成的任务和节省的时间衡量。</p>
         </div>
       </div>
     </section>
 
     <!-- 03 -->
     <section class="reveal">
-      <h2><span class="num">03</span><span data-i18n="s3.title">Helpful, harmless, honest — and shipped</span></h2>
-      <p data-i18n="s3.p1">
-        Anthropic's three H's — helpful, harmless, honest — are a solid ethical foundation.
-        Constitutional AI's approach of training models to self-critique against a set of
-        principles is elegant. We adopt this philosophy in our application layer.
-      </p>
-      <p data-i18n="s3.p2">
-        But we add a fourth H: <strong>Handed to users.</strong> A model that is perfectly
-        helpful, harmless, and honest — but locked in a lab — helps no one. Every principle
-        we adopt must ultimately serve the people who use our products. Ethics that don't
-        ship are just philosophy.
-      </p>
+      <h2><span class="num">03</span><span data-i18n="s3.title">有用、无害、诚实——还要交付</span></h2>
+      <p data-i18n="s3.p1">Anthropic 的三个 H——有用、无害、诚实——是坚实的伦理基础。宪法 AI 让模型对照一组原则自我批评的方法很优雅。我们在应用层采纳了这一理念。</p>
+      <p data-i18n="s3.p2">但我们加了第四个 H：交付到用户手中（Handed to users）。一个完美有用、无害、诚实——但锁在实验室里——的模型帮不了任何人。我们采纳的每条原则最终都必须服务于使用产品的人。不交付的伦理只是哲学。</p>
     </section>
 
     <!-- 04 -->
     <section class="reveal">
-      <h2><span class="num">04</span><span data-i18n="s4.title">Interpretability matters — but so does accessibility</span></h2>
-      <p data-i18n="s4.p1">
-        Anthropic invests heavily in interpretability research — understanding what happens
-        inside neural networks. Their work on circuit analysis and feature visualization is
-        pushing the field forward. We believe this is important.
-      </p>
-      <p data-i18n="s4.p2">
-        But there's another kind of transparency that matters just as much: <strong>process
-        transparency for the end user.</strong> When Otto executes a task, the user sees every
-        step — what it's thinking, what tools it's calling, why it made each decision. No black
-        boxes in the application layer. The user doesn't need to understand transformers; they
-        need to trust the agent in front of them.
-      </p>
+      <h2><span class="num">04</span><span data-i18n="s4.title">可解释性很重要——可及性也一样</span></h2>
+      <p data-i18n="s4.p1">Anthropic 在可解释性研究上投入巨大——理解神经网络内部发生了什么。他们在电路分析和特征可视化方面的工作正在推动领域前进。我们认为这很重要。</p>
+      <p data-i18n="s4.p2">但还有另一种同样重要的透明度：面向终端用户的过程透明。当 Otto 执行任务时，用户能看到每一步——它在想什么、调用什么工具、为什么做每个决定。应用层没有黑箱。用户不需要理解 Transformer，他们需要信任面前的 Agent。</p>
     </section>
 
     <!-- 05 -->
     <section class="reveal">
-      <h2><span class="num">05</span><span data-i18n="s5.title">Data sovereignty is non-negotiable</span></h2>
-      <p data-i18n="s5.p1">
-        Anthropic's RSP includes strong commitments about data handling and deployment controls.
-        We go further: for enterprise deployments, <strong>data never leaves your network.</strong>
-      </p>
-      <p data-i18n="s5.p2">
-        Otto Enterprise runs on your LAN. Zero cloud. Zero third-party forwarding. When an
-        employee leaves, their data access and traces are zeroed out — by architecture, not
-        promise. We believe data sovereignty isn't a feature; it's a prerequisite for trust.
-      </p>
+      <h2><span class="num">05</span><span data-i18n="s5.title">数据主权不可妥协</span></h2>
+      <p data-i18n="s5.p1">Anthropic 的 RSP 包含了关于数据处理和部署控制的强承诺。我们走得更远：企业部署中，数据永远不离开你的网络。</p>
+      <p data-i18n="s5.p2">Otto Enterprise 运行在你的局域网。零云端、零第三方转发。员工离职时，其数据访问权限和痕迹同步清零——靠架构，而非承诺。我们相信数据主权不是功能，而是信任的前提。</p>
     </section>
 
     <!-- 06 -->
     <section class="reveal">
-      <h2><span class="num">06</span><span data-i18n="s6.title">The real benchmark is the workplace</span></h2>
-      <p data-i18n="s6.p1">
-        Frontier labs compete on benchmarks: MMLU, HumanEval, GPQA. These are valuable for
-        measuring progress. But they are not the final measure.
-      </p>
-      <p data-i18n="s6.p2">
-        The real benchmark is: <strong>did an employee complete a task faster? Did a team
-        ship something they couldn't before? Did an organization become more capable?</strong>
-        We measure ourselves by ROI per task, hours saved, and skills accumulated — not
-        leaderboard positions. Anthropic builds the engine. We build the car that gets you
-        to work.
-      </p>
-      <div class="quote" data-i18n="s6.quote">
-        "Frontier models compete on benchmarks. We compete on whether your team got home earlier."
-      </div>
+      <h2><span class="num">06</span><span data-i18n="s6.title">真正的基准是工作场所</span></h2>
+      <p data-i18n="s6.p1">前沿实验室在基准上竞争：MMLU、HumanEval、GPQA。这些对衡量进步有价值，但不是最终衡量标准。</p>
+      <p data-i18n="s6.p2">真正的基准是：员工是否更快完成了任务？团队是否交付了以前做不到的东西？组织是否变得更有能力？我们用每个任务的 ROI、节省的小时数、积累的 Skill 来衡量自己——而非排行榜名次。Anthropic 造引擎，我们造送你上班的车。</p>
+      <div class="quote" data-i18n="s6.quote">"前沿模型在基准上竞争，我们在你的团队是否更早下班上竞争。"</div>
     </section>
 
     <!-- 07 -->
     <section class="reveal">
-      <h2><span class="num">07</span><span data-i18n="s7.title">AI should augment, not replace — but the transition is real</span></h2>
-      <p data-i18n="s7.p1">
-        Anthropic acknowledges the economic impact of AI and has proposed frameworks for
-        managing job displacement. We agree this is a serious concern.
-      </p>
-      <p data-i18n="s7.p2">
-        Our position: <strong>AI doesn't replace people — people who master AI replace those
-        who don't.</strong> The transition is real, and it's happening now. Our responsibility
-        is not to slow it down, but to make sure everyone has the tools and training to be on
-        the right side of that equation. That's why Miraphant AI Club exists: not to teach
-        people about AI in theory, but to put AI in their hands on day one.
-      </p>
+      <h2><span class="num">07</span><span data-i18n="s7.title">AI 应当增强而非取代——但转型是真实的</span></h2>
+      <p data-i18n="s7.p1">Anthropic 承认 AI 的经济影响，并提出了管理就业替代的框架。我们同意这是一个严肃的问题。</p>
+      <p data-i18n="s7.p2">我们的立场：AI 不取代人——掌握 AI 的人取代不掌握 AI 的人。转型是真实的，而且正在发生。我们的责任不是放慢它，而是确保每个人都有工具和训练站到等式的正确一边。这就是 序动科技 AI 研习社 存在的意义：不是在理论上教人们 AI，而是在第一天就把 AI 放到他们手中。</p>
     </section>
 
   </div>
@@ -316,11 +244,11 @@
 <section class="closing">
   <div class="container">
     <div class="reveal">
-      <h2 data-i18n="close.title">Others build AI. We ship it.</h2>
-      <p data-i18n="close.sub">The future of intelligence is not in a lab. It's in your hands.</p>
+      <h2 data-i18n="close.title">别人造 AI，我们交付 AI。</h2>
+      <p data-i18n="close.sub">智能的未来不在实验室里，在你手中。</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="/" class="btn-primary" data-i18n="close.cta">← Back to Miraphant</a>
-        <a href="mailto:NSIETeam@outlook.com" class="btn-secondary" data-i18n="close.contact">Contact Us</a>
+        <a href="/" class="btn-primary" data-i18n="close.cta">← 返回 序动科技</a>
+        <a href="mailto:NSIETeam@outlook.com" class="btn-secondary" data-i18n="close.contact">联系我们</a>
       </div>
     </div>
   </div>
@@ -328,12 +256,12 @@
 
 <footer>
   <div class="container footer-inner" style="max-width:1100px">
-    <span>© 2026 Miraphant, Inc.</span>
+    <span>© 2026 序动科技</span>
     <div class="footer-meta-actions">
-      <span data-i18n="footer.tag">Our Manifesto — Miraphant</span>
+      <span data-i18n="footer.tag">我们的主张 — 序动科技</span>
       <div class="language-menu">
         <button class="language-trigger" type="button" aria-label="Language" aria-haspopup="menu" aria-expanded="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="language-current">English</span><svg class="language-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="language-popover" role="menu" aria-label="Language"><button class="lang-btn active" type="button" role="menuitemradio" aria-checked="true" data-lang="en"><span>English</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button><button class="lang-btn" type="button" role="menuitemradio" aria-checked="false" data-lang="zh"><span>中文</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button></div>
+        <div class="language-popover" role="menu" aria-label="Language"><button class="lang-btn active" type="button" role="menuitemradio" aria-checked="true" data-lang="zh-CN"><span>English</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button><button class="lang-btn" type="button" role="menuitemradio" aria-checked="false" data-lang="zh"><span>中文</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button></div>
       </div>
     </div>
   </div>
@@ -355,7 +283,7 @@ const i18n = {
     's2.p2': "A brain without a body can't lift anything. The most powerful model in the world, trapped behind an API, helps only those who know how to call it. Our job is to build the hands and feet — so that intelligence reaches every desk, every workflow, every person who needs it.",
     's2.theirs.label': 'Frontier Labs', 's2.theirs.title': 'Build a better brain',
     's2.theirs.desc': 'Compete on parameters, benchmarks, context windows. Value measured in capability scores.',
-    's2.ours.label': 'Miraphant', 's2.ours.title': 'Build a better body',
+    's2.ours.label': '序动科技', 's2.ours.title': 'Build a better body',
     's2.ours.desc': 'Compete on experience, outcomes, adoption. Value measured in tasks completed and hours saved.',
     's3.title': 'Helpful, harmless, honest — and shipped',
     's3.p1': "Anthropic's three H's — helpful, harmless, honest — are a solid ethical foundation. Constitutional AI's approach of training models to self-critique against a set of principles is elegant. We adopt this philosophy in our application layer.",
@@ -372,12 +300,12 @@ const i18n = {
     's6.quote': '"Frontier models compete on benchmarks. We compete on whether your team got home earlier."',
     's7.title': 'AI should augment, not replace — but the transition is real',
     's7.p1': "Anthropic acknowledges the economic impact of AI and has proposed frameworks for managing job displacement. We agree this is a serious concern.",
-    's7.p2': "Our position: AI doesn't replace people — people who master AI replace those who don't. The transition is real, and it's happening now. Our responsibility is not to slow it down, but to make sure everyone has the tools and training to be on the right side of that equation. That's why Miraphant AI Club exists: not to teach people about AI in theory, but to put AI in their hands on day one.",
+    's7.p2': "Our position: AI doesn't replace people — people who master AI replace those who don't. The transition is real, and it's happening now. Our responsibility is not to slow it down, but to make sure everyone has the tools and training to be on the right side of that equation. That's why 序动科技 AI 研习社 exists: not to teach people about AI in theory, but to put AI in their hands on day one.",
     'close.title': 'Others build AI. We ship it.',
     'close.sub': 'The future of intelligence is not in a lab. It\'s in your hands.',
-    'close.cta': '← Back to Miraphant',
+    'close.cta': '← Back to 序动科技',
     'close.contact': 'Contact Us',
-    'footer.tag': 'Our Manifesto — Miraphant',
+    'footer.tag': 'Our Manifesto — 序动科技',
   },
   zh: {
     'nav.back': '← 返回',
@@ -393,7 +321,7 @@ const i18n = {
     's2.p2': '没有身体的大脑什么也搬不动。世界上最强大的模型，困在 API 后面，只能帮到知道怎么调用它的人。我们的工作是造手和脚——让智能到达每张办公桌、每个工作流、每个需要它的人。',
     's2.theirs.label': '前沿实验室', 's2.theirs.title': '造更好的大脑',
     's2.theirs.desc': '在参数、基准、上下文窗口上竞争。价值以能力评分衡量。',
-    's2.ours.label': 'Miraphant', 's2.ours.title': '造更好的身体',
+    's2.ours.label': '序动科技', 's2.ours.title': '造更好的身体',
     's2.ours.desc': '在体验、结果、采用率上竞争。价值以完成的任务和节省的时间衡量。',
     's3.title': '有用、无害、诚实——还要交付',
     's3.p1': 'Anthropic 的三个 H——有用、无害、诚实——是坚实的伦理基础。宪法 AI 让模型对照一组原则自我批评的方法很优雅。我们在应用层采纳了这一理念。',
@@ -410,12 +338,12 @@ const i18n = {
     's6.quote': '"前沿模型在基准上竞争，我们在你的团队是否更早下班上竞争。"',
     's7.title': 'AI 应当增强而非取代——但转型是真实的',
     's7.p1': 'Anthropic 承认 AI 的经济影响，并提出了管理就业替代的框架。我们同意这是一个严肃的问题。',
-    's7.p2': '我们的立场：AI 不取代人——掌握 AI 的人取代不掌握 AI 的人。转型是真实的，而且正在发生。我们的责任不是放慢它，而是确保每个人都有工具和训练站到等式的正确一边。这就是 Miraphant AI Club 存在的意义：不是在理论上教人们 AI，而是在第一天就把 AI 放到他们手中。',
+    's7.p2': '我们的立场：AI 不取代人——掌握 AI 的人取代不掌握 AI 的人。转型是真实的，而且正在发生。我们的责任不是放慢它，而是确保每个人都有工具和训练站到等式的正确一边。这就是 序动科技 AI 研习社 存在的意义：不是在理论上教人们 AI，而是在第一天就把 AI 放到他们手中。',
     'close.title': '别人造 AI，我们交付 AI。',
     'close.sub': '智能的未来不在实验室里，在你手中。',
-    'close.cta': '← 返回 Miraphant',
+    'close.cta': '← 返回 序动科技',
     'close.contact': '联系我们',
-    'footer.tag': '我们的主张 — Miraphant',
+    'footer.tag': '我们的主张 — 序动科技',
   }
 };
 

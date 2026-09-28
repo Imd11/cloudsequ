@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Miraphant — Project Follow-up</title>
+<title>序动科技 — Project Follow-up</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../js/portal.css">
@@ -40,19 +40,20 @@
 @media(max-width:768px){.fi-row{flex-direction:column}.fi-input{width:100%}}
 </style>
 <link rel="stylesheet" href="../css/workspace.css">
+<link rel="stylesheet" href="/css/brand.css">
 </head>
 <body class="mf-workspace page-workspace page-followup">
 <script src="../js/auth.js"></script>
 <script>if(!window.checkAuth())window.location.href="/#employee-portal";</script>
 <nav class="portal-nav" id="nav" aria-label="Workspace"><div class="portal-nav-inner">
-<a href="/" class="portal-nav-logo"><img src="../logo.png" style="width:32px;height:32px" alt="Miraphant"> Miraphant</a>
+<a href="/" class="portal-nav-logo"><span class="xudong-wordmark">序动科技</span></a>
 <ul class="portal-nav-links" id="navLinks">
-<li><a href="/portal/">Dashboard</a></li>
+<li><a href="/portal/">工作台</a></li>
 <li><a href="/oa/">OA</a></li>
-<li><a href="/followup/" class="active">Follow-up</a></li>
-<li><a href="/changelog/">Log</a></li>
+<li><a href="/followup/" class="active">项目跟进</a></li>
+<li><a href="/changelog/">更新记录</a></li>
 </ul>
-<div class="portal-nav-right"><button class="portal-logout-btn" onclick="doLogout()">Logout</button></div>
+<div class="portal-nav-right"><button class="portal-logout-btn" onclick="doLogout()">退出登录</button></div>
 <button class="portal-nav-toggle" id="navToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
 </div></nav>
 <section id="hero"><div class="container">
@@ -69,7 +70,7 @@
 <div class="repo-tabs" id="repoTabs"></div>
 <div id="projectArea"></div>
 </div></section>
-<div style="padding:32px 0;text-align:center;color:var(--g400);font-size:12px;border-top:1px solid var(--g100)"><div class="container">&copy; 2026 Miraphant, Inc.</div></div>
+<div style="padding:32px 0;text-align:center;color:var(--g400);font-size:12px;border-top:1px solid var(--g100)"><div class="container">&copy; 2026 序动科技</div></div>
 <script src="../js/fu-app.js"></script>
 <script src="../js/site.js"></script>
 </body>

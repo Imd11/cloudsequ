@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Miraphant Employee Portal</title>
+<title>员工工作台｜序动科技</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../js/portal.css">
@@ -45,37 +45,38 @@
 @media(max-width:768px){.dash-grid{grid-template-columns:1fr}.qa-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 <link rel="stylesheet" href="../css/workspace.css">
+<link rel="stylesheet" href="/css/brand.css">
 </head>
 <body class="mf-workspace page-workspace page-portal">
 <script src="../js/auth.js"></script>
 <script>if(!window.checkAuth())window.location.href="/#employee-portal";</script>
 <nav class="portal-nav" id="nav" aria-label="Workspace"><div class="portal-nav-inner">
-<a href="/" class="portal-nav-logo"><img src="../logo.png" style="width:32px;height:32px" alt="Miraphant"> Miraphant</a>
+<a href="/" class="portal-nav-logo"><span class="xudong-wordmark">序动科技</span></a>
 <ul class="portal-nav-links" id="navLinks">
-<li><a href="/portal/" class="active">Dashboard</a></li>
+<li><a href="/portal/" class="active">工作台</a></li>
 <li><a href="/oa/">OA</a></li>
-<li><a href="/followup/">Follow-up</a></li>
-<li><a href="/changelog/">Log</a></li>
+<li><a href="/followup/">项目跟进</a></li>
+<li><a href="/changelog/">更新记录</a></li>
 </ul>
-<div class="portal-nav-right"><button class="portal-logout-btn" onclick="doLogout()">Logout</button></div>
+<div class="portal-nav-right"><button class="portal-logout-btn" onclick="doLogout()">退出登录</button></div>
 <button class="portal-nav-toggle" id="navToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
 </div></nav>
 
 <section class="portal-hero"><div class="container" style="width:100%"><div class="portal-hero-content">
-<div class="reveal"><div class="portal-badge"><span class="portal-badge-dot"></span>Employee Portal</div></div>
-<div class="reveal"><h1 class="portal-hero-title"><span>Internal tools,</span><br><span class="light">all in one place.</span></h1></div>
-<div class="reveal"><p class="portal-hero-sub" id="welcomeText">Welcome back. Here is your workspace overview.</p></div>
+<div class="reveal"><div class="portal-badge"><span class="portal-badge-dot"></span>员工入口</div></div>
+<div class="reveal"><h1 class="portal-hero-title"><span>内部工具，</span><br><span class="light">一站直达。</span></h1></div>
+<div class="reveal"><p class="portal-hero-sub" id="welcomeText">欢迎回来，这里是你的工作概览。</p></div>
 </div></div></section>
 
 <!-- Stats -->
 <section class="dash-section" style="border-top:none;padding-top:0"><div class="container">
-<div class="ds-label">Overview</div>
+<div class="ds-label">工作概览</div>
 <div class="stats-row" id="dashStats"></div>
 </div></section>
 
 <!-- Quick Actions -->
 <section class="dash-section"><div class="container">
-<div class="ds-label">Quick Actions</div>
+<div class="ds-label">快捷操作</div>
 <div class="qa-grid" id="qaGrid"></div>
 </div></section>
 
@@ -83,17 +84,17 @@
 <section class="dash-section"><div class="container">
 <div class="dash-grid">
 <div class="dash-card reveal">
-<div class="dash-card-head"><h3>My Pending Items</h3><a href="/oa/" class="dash-card-link">View OA</a></div>
+<div class="dash-card-head"><h3>我的待办</h3><a href="/oa/" class="dash-card-link">查看办公系统</a></div>
 <div id="todoList"></div>
 </div>
 <div class="dash-card reveal">
-<div class="dash-card-head"><h3>Project Status</h3><a href="/followup/" class="dash-card-link">View All</a></div>
+<div class="dash-card-head"><h3>项目状态</h3><a href="/followup/" class="dash-card-link">查看全部</a></div>
 <div id="projList"></div>
 </div>
 </div>
 </div></section>
 
-<div style="padding:32px 0;text-align:center;color:rgba(255,255,255,.15);font-size:12px;border-top:1px solid rgba(255,255,255,.05)"><div class="container">&copy; 2026 Miraphant, Inc. / Employee Portal</div></div>
+<div style="padding:32px 0;text-align:center;color:rgba(255,255,255,.15);font-size:12px;border-top:1px solid rgba(255,255,255,.05)"><div class="container">&copy; 2026 序动科技 / Employee Portal</div></div>
 
 <script>
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
@@ -114,7 +115,7 @@ var FU_REPOS=[
 {id:'otto',name:'Otto'},
 {id:'circle',name:'Circle'},
 {id:'OliveWolf',name:'OliveWolf'},
-{id:'miraphant',name:'Miraphant'},
+{id:'miraphant',name:'序动科技'},
 {id:'EasyHermes',name:'EasyHermes'}
 ];
 function fuKey(repoId){return 'fu-entries-'+repoId}

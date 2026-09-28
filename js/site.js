@@ -9,8 +9,8 @@
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
   const navLabels = {
-    en: { about: 'About', products: 'Products', manifesto: 'Manifesto', club: 'AI Club' },
-    zh: { about: '关于我们', products: '产品', manifesto: '我们的主张', club: 'AI Club' }
+    en: { about: 'About', products: 'Products', manifesto: 'Manifesto', club: 'AI 研习社' },
+    zh: { about: '关于我们', products: '产品', manifesto: '我们的主张', club: 'AI 研习社' }
   };
 
   function syncNavLanguage() {

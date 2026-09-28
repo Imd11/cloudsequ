@@ -22,7 +22,7 @@ for p in src.rglob('*'):
     rel = p.relative_to(src)
     if any(x.startswith('.') for x in rel.parts) or rel.parts[0] in {'docs','scripts','deploy'}:
         continue
-    if p.is_file() and p.suffix.lower() in allowed:
+    if p.is_file() and (p.suffix.lower() in allowed or str(rel) == 'brand/FONT-LICENSE.txt'):
         target = dst / rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(p, target)

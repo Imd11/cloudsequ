@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
 <script src="../js/language.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="OliveWolf — Open-source 3D digital human engine by Miraphant. Real-time audio-driven conversation, dual render backends, enterprise deployment.">
+<meta name="description" content="序动科技专注企业 AI 应用，让想法成为可用的产品，帮助团队将 AI 融入日常工作。">
 <link rel="canonical" href="https://cloudsequ.com/olivewolf/">
-<title>OliveWolf — Miraphant</title>
+<title>OliveWolf 数字人引擎｜序动科技</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,23 +111,21 @@
   @media (max-width: 640px) { .ow-pillars { grid-template-columns: 1fr; } .edition-card { padding: 24px; } .pipeline-step { min-width: 100px; } }
 </style>
 <link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="/css/brand.css">
 </head>
 <body class="mf-site page-product page-olivewolf">
 
-<nav id="nav" aria-label="Primary">
+<nav id="nav" aria-label="主导航">
   <div class="container nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="../logo.png" alt="Miraphant" class="nav-logo-mark" style="width:32px;height:32px">
-      Miraphant
-    </a>
+    <a href="/" class="nav-logo" aria-label="序动科技首页"><span class="xudong-wordmark">序动科技</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/about/" data-nav="about">About</a></li>
-      <li><a href="/#products" data-nav="products">Products</a></li>
-      <li><a href="/manifesto/" data-nav="manifesto">Manifesto</a></li>
-      <li><a href="/ai-club/" data-nav="club">AI Club</a></li>
+      <li><a href="/about/" data-nav="about">关于我们</a></li>
+      <li><a href="/#products" data-nav="products">产品</a></li>
+      <li><a href="/manifesto/" data-nav="manifesto">我们的主张</a></li>
+      <li><a href="/ai-club/" data-nav="club">AI 研习社</a></li>
     </ul>
     <div class="nav-right">
-      <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
     </div>
   </div>
 </nav>
@@ -135,22 +133,22 @@
 <section class="product-hero">
   <div class="container product-hero-inner">
     <div>
-      <div class="reveal"><div class="product-badge" data-i18n="hero.badge">Miraphant Product</div></div>
+      <div class="reveal"><div class="product-badge" data-i18n="hero.badge">序动科技 产品</div></div>
       <div class="reveal rd1">
         <h1>OliveWolf</h1>
-        <p class="sub" style="font-size:18px;font-weight:600;color:var(--gray-700)" data-i18n="hero.tagline">Open-source 3D digital human engine</p>
-        <p class="sub" data-i18n="hero.sub">A real-time, audio-driven digital human framework built on dual render backends. Open-source core with enterprise-grade deployment. From a single portrait to a speaking, listening, thinking avatar.</p>
+        <p class="sub" style="font-size:18px;font-weight:600;color:var(--gray-700)" data-i18n="hero.tagline">开源 3D 数字人引擎</p>
+        <p class="sub" data-i18n="hero.sub">基于双渲染后端的实时音频驱动数字人框架。开源核心，企业级部署。从一张照片，到会听、会想、会说话的数字人。</p>
       </div>
       <div class="reveal rd2" style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="https://github.com/NSIETeam/OliveWolf" class="btn-primary" data-i18n="hero.gh">View on GitHub →</a>
-        <a href="#editions" class="btn-secondary" data-i18n="hero.editions">Editions →</a>
+        <a href="https://github.com/NSIETeam/OliveWolf" class="btn-primary" data-i18n="hero.gh">在 GitHub 查看 →</a>
+        <a href="#editions" class="btn-secondary" data-i18n="hero.editions">版本 →</a>
       </div>
     </div>
     <div class="reveal rd3" style="background:var(--gray-50);border-radius:20px;border:1px solid var(--gray-200);padding:36px">
-      <div class="label" data-i18n="hero.panel.label">Customer Deployment</div>
-      <h2 style="font-size:28px;line-height:1.15;margin-bottom:16px" data-i18n="hero.panel.title">Install once. Train in browser.</h2>
-      <p class="section-sub" data-i18n="hero.panel.desc">Send the free Studio package to a customer server. They run two scripts, open the web console, upload an avatar, and start a training job.</p>
-      <div style="margin-top:24px"><a href="../downloads/olivewolf-studio-v0.1.1.tar.gz" class="btn-primary" data-i18n="hero.download">Download Free Version →</a></div>
+      <div class="label" data-i18n="hero.panel.label">客户部署</div>
+      <h2 style="font-size:28px;line-height:1.15;margin-bottom:16px" data-i18n="hero.panel.title">安装一次，在浏览器里训练。</h2>
+      <p class="section-sub" data-i18n="hero.panel.desc">把免费 Studio 安装包发到客户服务器。客户运行两个脚本，打开网页控制台，上传形象并启动训练任务。</p>
+      <div style="margin-top:24px"><a href="../downloads/olivewolf-studio-v0.1.1.tar.gz" class="btn-primary" data-i18n="hero.download">下载免费版本 →</a></div>
     </div>
   </div>
 </section>
@@ -158,25 +156,25 @@
 <section class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:600px">
-      <div class="label" data-i18n="pillars.label">OliveWolf's DNA</div>
-      <h2 class="section-title" data-i18n="pillars.title">Four principles that define OliveWolf</h2>
+      <div class="label" data-i18n="pillars.label">OliveWolf 的基因</div>
+      <h2 class="section-title" data-i18n="pillars.title">定义 OliveWolf 的四项原则</h2>
     </div>
     <div class="ow-pillars" style="margin-top:24px">
       <div class="ow-pillar reveal rd1">
-        <div class="keyword" style="color:var(--black)">REAL-TIME</div>
-        <p data-i18n="pillars.p1">Audio drives lip movement frame-by-frame. Low-latency streaming pipeline turns speech into a talking avatar in under two seconds — ask a question, get a face that answers.</p>
+        <div class="keyword" style="color:var(--black)">实时交互</div>
+        <p data-i18n="pillars.p1">音频逐帧驱动口型。低延迟流式管线让语音在两秒内变成会说话的数字人——你提问，一张正在回答的脸就出现。</p>
       </div>
       <div class="ow-pillar reveal rd2">
-        <div class="keyword" style="color:var(--gray-500)">DUAL-ENGINE</div>
-        <p data-i18n="pillars.p2">Two render backends under one interface: a 2D portrait engine for real-time conversation, and a full-body 3D engine for cinematic, offline-quality output. Switch without touching business logic.</p>
+        <div class="keyword" style="color:var(--gray-500)">双引擎</div>
+        <p data-i18n="pillars.p2">一套接口，两个渲染后端：用于实时对话的 2D 人像引擎，和用于电影级离线画质的全身 3D 引擎。无需改动业务逻辑即可切换。</p>
       </div>
       <div class="ow-pillar reveal rd3">
-        <div class="keyword" style="color:var(--black)">OPEN-CORE</div>
-        <p data-i18n="pillars.p3">The full engine is open-source. Build on LHM and LivePortrait with a clean abstraction layer. No black boxes — every render step is inspectable and replaceable.</p>
+        <div class="keyword" style="color:var(--black)">开放内核</div>
+        <p data-i18n="pillars.p3">引擎完全开源。基于 LHM 与 LivePortrait 构建，配以清晰的抽象层。没有黑箱——每一个渲染步骤都可检视、可替换。</p>
       </div>
       <div class="ow-pillar reveal rd4">
-        <div class="keyword" style="color:var(--gray-500)">ENTERPRISE</div>
-        <p data-i18n="pillars.p4">Self-hosted, LAN-deployable, brand-consistent. Custom avatars in your uniform, domain-specific knowledge bases, and full control over data. Yours to own, not rent.</p>
+        <div class="keyword" style="color:var(--gray-500)">企业应用</div>
+        <p data-i18n="pillars.p4">可自托管、可局域部署、可品牌定制。穿你工装的自定义形象、领域专属知识库、对数据的完全掌控。是拥有，不是租用。</p>
       </div>
     </div>
   </div>
@@ -185,21 +183,21 @@
 <section class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:680px">
-      <div class="label" data-i18n="pipeline.label">Real-Time Pipeline</div>
-      <h2 class="section-title" data-i18n="pipeline.title">From voice to a speaking face — in one stream</h2>
-      <p class="section-sub" data-i18n="pipeline.sub">A streaming pipeline chains speech recognition, reasoning, synthesis, and rendering. Each stage runs as soon as its input arrives, so the avatar starts speaking before the full answer is generated.</p>
+      <div class="label" data-i18n="pipeline.label">实时管线</div>
+      <h2 class="section-title" data-i18n="pipeline.title">从语音到说话的脸——一条流</h2>
+      <p class="section-sub" data-i18n="pipeline.sub">流式管线串联语音识别、推理、合成与渲染。每个阶段在输入到达时即刻启动，数字人在完整答案生成前就开始说话。</p>
     </div>
     <div class="pipeline reveal rd1">
       <div class="pipeline-flow">
-        <div class="pipeline-step"><div class="num">01</div><div class="name" data-i18n="pipeline.s1">Listen</div><div class="tech">ASR · Whisper</div></div>
+        <div class="pipeline-step"><div class="num">01</div><div class="name" data-i18n="pipeline.s1">聆听</div><div class="tech">ASR · Whisper</div></div>
         <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="num">02</div><div class="name" data-i18n="pipeline.s2">Think</div><div class="tech">LLM · GPT-4o</div></div>
+        <div class="pipeline-step"><div class="num">02</div><div class="name" data-i18n="pipeline.s2">思考</div><div class="tech">LLM · GPT-4o</div></div>
         <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="num">03</div><div class="name" data-i18n="pipeline.s3">Speak</div><div class="tech">TTS · Streaming</div></div>
+        <div class="pipeline-step"><div class="num">03</div><div class="name" data-i18n="pipeline.s3">发声</div><div class="tech">TTS · Streaming</div></div>
         <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="num">04</div><div class="name" data-i18n="pipeline.s4">Animate</div><div class="tech">Audio → Lip</div></div>
+        <div class="pipeline-step"><div class="num">04</div><div class="name" data-i18n="pipeline.s4">驱动</div><div class="tech">Audio → Lip</div></div>
         <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="num">05</div><div class="name" data-i18n="pipeline.s5">Render</div><div class="tech">Portrait / 3D</div></div>
+        <div class="pipeline-step"><div class="num">05</div><div class="name" data-i18n="pipeline.s5">渲染</div><div class="tech">Portrait / 3D</div></div>
       </div>
     </div>
   </div>
@@ -208,16 +206,16 @@
 <section class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:680px">
-      <div class="label" data-i18n="cap.label">Capabilities</div>
-      <h2 class="section-title" data-i18n="cap.title">Engineered for both speed and quality</h2>
+      <div class="label" data-i18n="cap.label">能力</div>
+      <h2 class="section-title" data-i18n="cap.title">兼顾速度与画质</h2>
     </div>
     <div class="cap-grid">
-      <div class="cap-card reveal rd1"><h3 data-i18n="cap.c1.t">Audio-driven lipsync</h3><p data-i18n="cap.c1.d">TTS audio is split into frames and mapped to lip-open ratios, fed directly into the portrait renderer. No driving video needed — the voice animates the mouth.</p></div>
-      <div class="cap-card reveal rd2"><h3 data-i18n="cap.c2.t">Avatar caching</h3><p data-i18n="cap.c2.d">A portrait is preprocessed once — face detection, 3D feature extraction, keypoints — then reused across unlimited conversations. Instant replies, no repeated compute.</p></div>
-      <div class="cap-card reveal rd3"><h3 data-i18n="cap.c3.t">Full-body 3D</h3><p data-i18n="cap.c3.d">For cinematic output, the 3D engine reconstructs an animatable human from a single image and drives it with motion data. Build the avatar once, reuse every motion.</p></div>
-      <div class="cap-card reveal rd1"><h3 data-i18n="cap.c4.t">Scene presets</h3><p data-i18n="cap.c4.d">Four ready-made personas — explainer, consultant, streamer, guide — each with its own system prompt, render backend, and motion profile. Switch scenes in config.</p></div>
-      <div class="cap-card reveal rd2"><h3 data-i18n="cap.c5.t">Knowledge-ready</h3><p data-i18n="cap.c5.d">Plug in a domain knowledge base to ground the LLM. Real estate, finance, healthcare — the avatar answers with your facts, not hallucinations.</p></div>
-      <div class="cap-card reveal rd3"><h3 data-i18n="cap.c6.t">Unified backend API</h3><p data-i18n="cap.c6.d">One renderer interface, two engines. Business code never knows whether a 2D portrait or a 3D avatar is behind the screen. Add backends without rewriting logic.</p></div>
+      <div class="cap-card reveal rd1"><h3 data-i18n="cap.c1.t">音频驱动口型</h3><p data-i18n="cap.c1.d">TTS 音频被分帧并映射为唇部开合度，直接喂入人像渲染器。无需驱动视频——声音即可驱动嘴部。</p></div>
+      <div class="cap-card reveal rd2"><h3 data-i18n="cap.c2.t">形象缓存</h3><p data-i18n="cap.c2.d">人像只预处理一次——人脸检测、3D 特征提取、关键点——随后在无数次对话中复用。即时回复，零重复计算。</p></div>
+      <div class="cap-card reveal rd3"><h3 data-i18n="cap.c3.t">全身 3D</h3><p data-i18n="cap.c3.d">面向电影级输出，3D 引擎从单张照片重建可动数字人，并用动作数据驱动。建一次形象，复用所有动作。</p></div>
+      <div class="cap-card reveal rd1"><h3 data-i18n="cap.c4.t">场景预设</h3><p data-i18n="cap.c4.d">四种现成人设——讲解员、顾问、主播、向导——各有专属系统提示词、渲染后端与动作配置。在配置中切换场景。</p></div>
+      <div class="cap-card reveal rd2"><h3 data-i18n="cap.c5.t">知识库就绪</h3><p data-i18n="cap.c5.d">接入领域知识库为 LLM 提供事实依据。房产、金融、医疗——数字人用你的事实回答，而非凭空编造。</p></div>
+      <div class="cap-card reveal rd3"><h3 data-i18n="cap.c6.t">统一后端接口</h3><p data-i18n="cap.c6.d">一个渲染接口，两个引擎。业务代码无需知道屏幕背后是 2D 人像还是 3D 数字人。新增后端，无需重写逻辑。</p></div>
     </div>
   </div>
 </section>
@@ -225,24 +223,24 @@
 <section id="editions" class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:600px">
-      <div class="label" data-i18n="editions.label">Editions</div>
-      <h2 class="section-title" data-i18n="editions.title">One engine, three editions</h2>
+      <div class="label" data-i18n="editions.label">版本</div>
+      <h2 class="section-title" data-i18n="editions.title">一个引擎，三个版本</h2>
     </div>
     <div class="edition-card reveal rd1" style="margin-top:24px">
       <div>
-        <div class="ed-card-badge" data-i18n="editions.core.badge">Open Source</div>
+        <div class="ed-card-badge" data-i18n="editions.core.badge">开源</div>
         <h3 data-i18n="editions.core.title">OliveWolf Core</h3>
-        <div class="desc" data-i18n="editions.core.desc">The full open-source engine. Dual render backends, real-time conversation pipeline, scene presets, and a clean abstraction layer. MIT-licensed — build, modify, and deploy on your own infrastructure.</div>
+        <div class="desc" data-i18n="editions.core.desc">完整的开源引擎。双渲染后端、实时对话管线、场景预设与清晰抽象层。MIT 协议——在你自己的基础设施上构建、修改、部署。</div>
         <ul>
-          <li data-i18n="editions.core.l1">Real-time audio-driven portrait animation</li>
-          <li data-i18n="editions.core.l2">Full-body 3D offline rendering</li>
-          <li data-i18n="editions.core.l3">ASR + LLM + TTS streaming pipeline</li>
-          <li data-i18n="editions.core.l4">Four scene presets out of the box</li>
-          <li data-i18n="editions.core.l5">Bring-your-own API keys</li>
+          <li data-i18n="editions.core.l1">实时音频驱动人像动画</li>
+          <li data-i18n="editions.core.l2">全身 3D 离线渲染</li>
+          <li data-i18n="editions.core.l3">ASR + LLM + TTS 流式管线</li>
+          <li data-i18n="editions.core.l4">四种场景预设开箱即用</li>
+          <li data-i18n="editions.core.l5">自带 API 密钥</li>
         </ul>
         <div>
-          <a href="../downloads/olivewolf-studio-v0.1.1.tar.gz" class="btn-primary" data-i18n="editions.core.gh">Download Free Version →</a>
-          <div class="download-info" data-i18n="editions.core.info">MIT License · Python · Self-hosted</div>
+          <a href="../downloads/olivewolf-studio-v0.1.1.tar.gz" class="btn-primary" data-i18n="editions.core.gh">下载免费版本 →</a>
+          <div class="download-info" data-i18n="editions.core.info">MIT 协议 · Python · 自托管</div>
         </div>
       </div>
       <div style="background:var(--gray-50);border-radius:12px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-100)">
@@ -251,42 +249,42 @@
     </div>
     <div class="edition-card highlight reveal rd2">
       <div>
-        <div class="ed-card-badge" data-i18n="editions.studio.badge">Studio</div>
-        <h3 data-i18n="editions.studio.title">OliveWolf Studio</h3>
-        <div class="desc" data-i18n="editions.studio.desc">A customer-facing workspace for teams. Create projects, upload avatars, connect knowledge, test conversations, and publish digital humans without touching Python, CUDA, model paths, or YAML.</div>
+        <div class="ed-card-badge" data-i18n="editions.studio.badge">工作室</div>
+        <h3 data-i18n="editions.studio.title">OliveWolf 工作室</h3>
+        <div class="desc" data-i18n="editions.studio.desc">面向客户团队的工作台。创建项目、上传形象、接入知识库、测试对话、发布数字人，全程无需接触 Python、CUDA、模型路径或 YAML。</div>
         <ul>
-          <li data-i18n="editions.studio.l1">Project and avatar management</li>
-          <li data-i18n="editions.studio.l2">Knowledge source ingestion</li>
-          <li data-i18n="editions.studio.l3">Conversation testing API</li>
-          <li data-i18n="editions.studio.l4">Render job queue and worker boundary</li>
-          <li data-i18n="editions.studio.l5">Docker-ready deployment</li>
+          <li data-i18n="editions.studio.l1">项目与数字人管理</li>
+          <li data-i18n="editions.studio.l2">知识源接入</li>
+          <li data-i18n="editions.studio.l3">对话测试 API</li>
+          <li data-i18n="editions.studio.l4">渲染任务队列与 Worker 边界</li>
+          <li data-i18n="editions.studio.l5">Docker 就绪部署</li>
         </ul>
         <div>
-          <a href="https://github.com/NSIETeam/OliveWolf/tree/main/studio" class="btn-primary" data-i18n="editions.studio.cta">Explore Studio →</a>
+          <a href="https://github.com/NSIETeam/OliveWolf/tree/main/studio" class="btn-primary" data-i18n="editions.studio.cta">查看 Studio →</a>
         </div>
       </div>
       <div style="background:var(--gray-50);border-radius:12px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-100)">
-        <code style="font-size:11px;color:var(--gray-400);text-align:left;padding:20px;line-height:1.8">Workspace<br>Avatar<br>Knowledge<br>Conversation<br>Publish</code>
+        <code style="font-size:11px;color:var(--gray-400);text-align:left;padding:20px;line-height:1.8">工作空间<br>数字人<br>知识库<br>对话<br>发布</code>
       </div>
     </div>
     <div class="edition-card reveal rd3">
       <div>
-        <div class="ed-card-badge" data-i18n="editions.ent.badge">Enterprise</div>
-        <h3 data-i18n="editions.ent.title">OliveWolf Enterprise</h3>
-        <div class="desc" data-i18n="editions.ent.desc">Managed deployment with custom avatars, domain knowledge bases, brand integration, and on-premise infrastructure. Designed for organizations that need a digital workforce at scale — with zero data leaving your network.</div>
+        <div class="ed-card-badge" data-i18n="editions.ent.badge">企业版</div>
+        <h3 data-i18n="editions.ent.title">OliveWolf 企业版</h3>
+        <div class="desc" data-i18n="editions.ent.desc">托管式部署，含自定义数字人、领域知识库、品牌集成与本地基础设施。为需要规模化数字员工队伍的组织设计——数据零出网。</div>
         <ul>
-          <li data-i18n="editions.ent.l1">Custom avatar creation in your brand uniform</li>
-          <li data-i18n="editions.ent.l2">Domain knowledge base integration & tuning</li>
-          <li data-i18n="editions.ent.l3">On-premise or LAN deployment</li>
-          <li data-i18n="editions.ent.l4">Live streaming & multi-avatar management</li>
-          <li data-i18n="editions.ent.l5">Monitoring, logging, and usage analytics</li>
+          <li data-i18n="editions.ent.l1">穿你工装的自定义形象创建</li>
+          <li data-i18n="editions.ent.l2">领域知识库集成与调优</li>
+          <li data-i18n="editions.ent.l3">本地或局域部署</li>
+          <li data-i18n="editions.ent.l4">直播推流与多形象管理</li>
+          <li data-i18n="editions.ent.l5">监控、日志与用量分析</li>
         </ul>
         <div>
-          <a href="mailto:NSIETeam@outlook.com?subject=OliveWolf%20Enterprise" class="btn-primary" data-i18n="editions.ent.cta">Contact for Enterprise →</a>
+          <a href="mailto:NSIETeam@outlook.com?subject=OliveWolf%20Enterprise" class="btn-primary" data-i18n="editions.ent.cta">企业咨询 →</a>
         </div>
       </div>
       <div style="background:var(--gray-50);border-radius:12px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-100)">
-        <code style="font-size:11px;color:var(--gray-400);text-align:left;padding:20px;line-height:1.8">Private Deployment<br>Custom Avatar<br>Knowledge Base<br>Monitoring<br>Support</code>
+        <code style="font-size:11px;color:var(--gray-400);text-align:left;padding:20px;line-height:1.8">私有部署<br>定制数字人<br>知识库<br>运行监控<br>技术支持</code>
       </div>
     </div>
   </div>
@@ -295,8 +293,8 @@
 <section class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:600px">
-      <div class="label" data-i18n="tech.label">Tech Stack</div>
-      <h2 class="section-title" data-i18n="tech.title">Built on proven open-source foundations</h2>
+      <div class="label" data-i18n="tech.label">技术栈</div>
+      <h2 class="section-title" data-i18n="tech.title">基于成熟的开源基座构建</h2>
     </div>
     <div class="reveal rd1" style="margin-top:32px">
       <div class="tech-list">
@@ -320,12 +318,12 @@
 <div class="cta-section">
   <div class="container">
     <div class="reveal">
-      <div class="label" data-i18n="cta.label">Get Started</div>
-      <h2 class="section-title" data-i18n="cta.title">Give your product a face</h2>
-      <p class="sub" data-i18n="cta.sub">Clone the open-source engine, or bring OliveWolf Enterprise to your organization with custom avatars and on-premise deployment.</p>
+      <div class="label" data-i18n="cta.label">开始使用</div>
+      <h2 class="section-title" data-i18n="cta.title">给你的产品一张脸</h2>
+      <p class="sub" data-i18n="cta.sub">克隆开源引擎，或把 OliveWolf 企业版带到你的组织——自定义形象，本地部署。</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="../downloads/olivewolf-studio-v0.1.1.tar.gz" class="btn-primary" data-i18n="cta.gh">Download Free Version →</a>
-        <a href="mailto:NSIETeam@outlook.com?subject=OliveWolf" class="btn-secondary" data-i18n="cta.enterprise" style="border-color:var(--gray-700);color:var(--white)">Enterprise Inquiries</a>
+        <a href="../downloads/olivewolf-studio-v0.1.1.tar.gz" class="btn-primary" data-i18n="cta.gh">下载免费版本 →</a>
+        <a href="mailto:NSIETeam@outlook.com?subject=OliveWolf" class="btn-secondary" data-i18n="cta.enterprise" style="border-color:var(--gray-700);color:var(--white)">企业咨询</a>
       </div>
     </div>
   </div>
@@ -333,12 +331,12 @@
 
 <footer>
   <div class="container footer-inner">
-    <span>© 2026 Miraphant, Inc.</span>
+    <span>© 2026 序动科技</span>
     <div class="footer-meta-actions">
-      <span data-i18n="footer.product">OliveWolf — A Miraphant Product</span>
+      <span data-i18n="footer.product">OliveWolf — 序动科技 产品</span>
       <div class="language-menu">
         <button class="language-trigger" type="button" aria-label="Language" aria-haspopup="menu" aria-expanded="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="language-current">English</span><svg class="language-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="language-popover" role="menu" aria-label="Language"><button class="lang-btn active" type="button" role="menuitemradio" aria-checked="true" data-lang="en"><span>English</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button><button class="lang-btn" type="button" role="menuitemradio" aria-checked="false" data-lang="zh"><span>中文</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button></div>
+        <div class="language-popover" role="menu" aria-label="Language"><button class="lang-btn active" type="button" role="menuitemradio" aria-checked="true" data-lang="zh-CN"><span>English</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button><button class="lang-btn" type="button" role="menuitemradio" aria-checked="false" data-lang="zh"><span>中文</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button></div>
       </div>
     </div>
   </div>
@@ -348,7 +346,7 @@
 const i18n = {
   en: {
     'nav.back': '← Back',
-    'hero.badge': 'Miraphant Product',
+    'hero.badge': '序动科技 Product',
     'hero.tagline': 'Open-source 3D digital human engine',
     'hero.sub': 'A real-time, audio-driven digital human framework built on dual render backends. Open-source core with enterprise-grade deployment. From a single portrait to a speaking, listening, thinking avatar.',
     'hero.gh': 'View on GitHub →',
@@ -418,11 +416,11 @@ const i18n = {
     'cta.sub': 'Clone the open-source engine, or bring OliveWolf Enterprise to your organization with custom avatars and on-premise deployment.',
     'cta.gh': 'Download Free Version →',
     'cta.enterprise': 'Enterprise Inquiries',
-    'footer.product': 'OliveWolf — A Miraphant Product',
+    'footer.product': 'OliveWolf — A 序动科技 Product',
   },
   zh: {
     'nav.back': '← 返回',
-    'hero.badge': 'Miraphant 产品',
+    'hero.badge': '序动科技 产品',
     'hero.tagline': '开源 3D 数字人引擎',
     'hero.sub': '基于双渲染后端的实时音频驱动数字人框架。开源核心，企业级部署。从一张照片，到会听、会想、会说话的数字人。',
     'hero.gh': '在 GitHub 查看 →',
@@ -492,7 +490,7 @@ const i18n = {
     'cta.sub': '克隆开源引擎，或把 OliveWolf 企业版带到你的组织——自定义形象，本地部署。',
     'cta.gh': '下载免费版本 →',
     'cta.enterprise': '企业咨询',
-    'footer.product': 'OliveWolf — Miraphant 产品',
+    'footer.product': 'OliveWolf — 序动科技 产品',
   }
 };
 

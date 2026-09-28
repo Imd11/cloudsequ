@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Miraphant — Code Contribution Log</title>
+<title>代码更新记录｜序动科技</title>
 <link rel="icon" href="https://cloudsequ.com/favicon.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../js/portal.css">
@@ -117,33 +117,34 @@
   }
 </style>
 <link rel="stylesheet" href="../css/workspace.css">
+<link rel="stylesheet" href="/css/brand.css">
 </head>
 <body class="mf-workspace page-workspace page-changelog">
 
 <nav class="portal-nav" id="nav" aria-label="Workspace"><div class="portal-nav-inner">
-<a href="/" class="portal-nav-logo"><img src="../logo.png" style="width:32px;height:32px" alt="Miraphant"> Miraphant</a>
+<a href="/" class="portal-nav-logo"><span class="xudong-wordmark">序动科技</span></a>
 <ul class="portal-nav-links" id="navLinks">
-<li><a href="/portal/">Portal</a></li>
+<li><a href="/portal/">工作台</a></li>
 <li><a href="/oa/">OA</a></li>
-<li><a href="/followup/">Follow-up</a></li>
-<li><a href="/changelog/" class="active">Log</a></li>
-<li><a href="#timeline">Timeline</a></li>
-<li><a href="#contributors">Contributors</a></li>
+<li><a href="/followup/">项目跟进</a></li>
+<li><a href="/changelog/" class="active">更新记录</a></li>
+<li><a href="#timeline">时间线</a></li>
+<li><a href="#contributors">贡献者</a></li>
 </ul>
-<div class="portal-nav-right"><button class="portal-logout-btn" onclick="doLogout()">Logout</button></div>
+<div class="portal-nav-right"><button class="portal-logout-btn" onclick="doLogout()">退出登录</button></div>
 <button class="portal-nav-toggle" id="navToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
 </div></nav>
 
 <section class="hero">
   <div class="container">
-    <h1>Code Contribution Log</h1>
-    <p>Miraphant 全线产品代码贡献时间线 — 按时间倒序排列，涵盖 Otto、Circle、OliveWolf、Miraphant 官网、EasyHermes 五大项目。</p>
+    <h1>代码更新记录</h1>
+    <p>序动科技 全线产品代码贡献时间线 — 按时间倒序排列，涵盖 Otto、Circle、OliveWolf、序动科技 官网、EasyHermes 五大项目。</p>
     <div class="stats-row">
-      <div class="stat-box"><div class="num" id="totalCommits">0</div><div class="lbl">Total Commits</div></div>
-      <div class="stat-box"><div class="num" id="totalRepos">0</div><div class="lbl">Repositories</div></div>
-      <div class="stat-box"><div class="num" id="totalContributors">0</div><div class="lbl">Contributors</div></div>
-      <div class="stat-box"><div class="num" id="totalNotes">0</div><div class="lbl">Notes Saved</div></div>
-      <div class="stat-box"><div class="num" id="lastUpdate" style="font-size:11px;color:var(--g500);padding-top:8px">Loading...</div><div class="lbl">Last Sync</div></div>
+      <div class="stat-box"><div class="num" id="totalCommits">0</div><div class="lbl">提交总数</div></div>
+      <div class="stat-box"><div class="num" id="totalRepos">0</div><div class="lbl">代码仓库</div></div>
+      <div class="stat-box"><div class="num" id="totalContributors">0</div><div class="lbl">贡献者</div></div>
+      <div class="stat-box"><div class="num" id="totalNotes">0</div><div class="lbl">已保存备注</div></div>
+      <div class="stat-box"><div class="num" id="lastUpdate" style="font-size:11px;color:var(--g500);padding-top:8px">加载中…</div><div class="lbl">最近同步</div></div>
     </div>
     <div class="contributor-stats" id="contributors"></div>
   </div>
@@ -152,11 +153,11 @@
 <div class="controls">
   <div class="container" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;width:100%">
     <div class="filter-group">
-      <button class="filter-btn active" data-repo="all">All</button>
+      <button class="filter-btn active" data-repo="all">全部</button>
       <button class="filter-btn" data-repo="otto">Otto</button>
       <button class="filter-btn" data-repo="circle">Circle</button>
       <button class="filter-btn" data-repo="OliveWolf">OliveWolf</button>
-      <button class="filter-btn" data-repo="miraphant">Miraphant</button>
+      <button class="filter-btn" data-repo="miraphant">序动科技</button>
       <button class="filter-btn" data-repo="EasyHermes">EasyHermes</button>
     </div>
     <input type="text" class="search-box" id="searchBox" placeholder="Search commit messages...">
@@ -173,7 +174,7 @@
 
 <footer>
   <div class="container">
-    © 2026 Miraphant, Inc. — Auto-generated from GitHub commit history.
+    © 2026 序动科技 — Auto-generated from GitHub commit history.
   </div>
 </footer>
 
@@ -354,7 +355,7 @@ const FALLBACK_COMMITS = [
   {d:"2026-07-06T02:05:37Z",a:"NSIETeam",m:"feat: add ai club product page",r:"miraphant"},
   {d:"2026-07-06T01:58:42Z",a:"NSIETeam",m:"feat: add otto minor update section",r:"miraphant"},
   {d:"2026-07-06T01:53:51Z",a:"NSIETeam",m:"add OliveWolf product page + nav entry",r:"miraphant"},
-  {d:"2026-07-06T01:53:48Z",a:"NSIETeam",m:"rename to OliveWolf: 通用化定位, 绑定 Miraphant",r:"OliveWolf"},
+  {d:"2026-07-06T01:53:48Z",a:"NSIETeam",m:"rename to OliveWolf: 通用化定位, 绑定 序动科技",r:"OliveWolf"},
   {d:"2026-07-06T01:52:09Z",a:"NSIETeam",m:"copy: add otto minor update notes",r:"miraphant"},
   {d:"2026-07-06T01:51:33Z",a:"NSIETeam",m:"copy: add otto minor update note",r:"miraphant"},
   {d:"2026-07-06T01:49:52Z",a:"NSIETeam",m:"copy: expand otto business value scenarios",r:"miraphant"},
@@ -380,12 +381,12 @@ const FALLBACK_COMMITS = [
   {d:"2026-07-05T15:05:17Z",a:"NSIETeam",m:"feat: 经纪端每个房源卡片新增「分享」按钮",r:"circle"},
   {d:"2026-07-05T14:59:56Z",a:"NSIETeam",m:"feat: 经纪人绑定产业园需验证码验证",r:"circle"},
   {d:"2026-07-05T14:53:23Z",a:"NSIETeam",m:"feat: 经纪人-产业园绑定机制",r:"circle"},
-  {d:"2026-07-05T14:28:45Z",a:"NSIETeam",m:"AI Club: rebased on org training PPT — concepts, Otto bootcamp, Skill engine, real ROI, concerns, rollout plan",r:"miraphant"},
+  {d:"2026-07-05T14:28:45Z",a:"NSIETeam",m:"AI 研习社: rebased on org training PPT — concepts, Otto bootcamp, Skill engine, real ROI, concerns, rollout plan",r:"miraphant"},
   {d:"2026-07-05T14:25:01Z",a:"NSIETeam",m:"test: stabilize workspace quality checks",r:"otto"},
   {d:"2026-07-05T14:11:05Z",a:"NSIETeam",m:"Fix: Three principles grid — remove 4th pillar",r:"miraphant"},
   {d:"2026-07-05T14:07:27Z",a:"NSIETeam",m:"Rebuild: i18n for all pages, Otto 4 pillars, Circle ecosystem, no emoji",r:"miraphant"},
-  {d:"2026-07-05T14:00:48Z",a:"NSIETeam",m:"Restructure: product pages (Otto, Circle), AI Club, enterprise focus",r:"miraphant"},
-  {d:"2026-07-05T13:50:10Z",a:"NSIETeam",m:"Initial commit: Miraphant brand site with i18n (EN/ZH)",r:"miraphant"},
+  {d:"2026-07-05T14:00:48Z",a:"NSIETeam",m:"Restructure: product pages (Otto, Circle), AI 研习社, enterprise focus",r:"miraphant"},
+  {d:"2026-07-05T13:50:10Z",a:"NSIETeam",m:"Initial commit: 序动科技 brand site with i18n (EN/ZH)",r:"miraphant"},
   {d:"2026-07-05T13:06:54Z",a:"NSIETeam",m:"fix: clean desktop quality issues and sqlite typings",r:"otto"},
   {d:"2026-07-05T12:24:44Z",a:"NSIETeam",m:"style: constrain desktop palette and fix settings placement",r:"otto"},
   {d:"2026-07-05T12:10:02Z",a:"NSIETeam",m:"feat: surface experts as common tasks and expand command menu",r:"otto"},

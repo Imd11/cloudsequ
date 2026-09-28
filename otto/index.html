@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src https://api.github.com; img-src 'self' data: https://avatars.githubusercontent.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src https://api.github.com; img-src 'self' data: https://avatars.githubusercontent.com">
 <script src="../js/language.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Otto — Your AI digital colleague by Miraphant. Desktop, CLI, Enterprise. Orchestrate, Trust, Transform, Output.">
+<meta name="description" content="序动科技专注企业 AI 应用，让想法成为可用的产品，帮助团队将 AI 融入日常工作。">
 <link rel="canonical" href="https://cloudsequ.com/otto/">
-<title>Otto — Miraphant</title>
+<title>Otto AI 数字同事｜序动科技</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -184,23 +184,21 @@
   }
 </style>
 <link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="/css/brand.css">
 </head>
 <body class="mf-site page-product page-otto">
 
-<nav id="nav" aria-label="Primary">
+<nav id="nav" aria-label="主导航">
   <div class="container nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="../logo.png" alt="Miraphant" class="nav-logo-mark" style="width:32px;height:32px">
-      Miraphant
-    </a>
+    <a href="/" class="nav-logo" aria-label="序动科技首页"><span class="xudong-wordmark">序动科技</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/about/" data-nav="about">About</a></li>
-      <li><a href="/#products" data-nav="products">Products</a></li>
-      <li><a href="/manifesto/" data-nav="manifesto">Manifesto</a></li>
-      <li><a href="/ai-club/" data-nav="club">AI Club</a></li>
+      <li><a href="/about/" data-nav="about">关于我们</a></li>
+      <li><a href="/#products" data-nav="products">产品</a></li>
+      <li><a href="/manifesto/" data-nav="manifesto">我们的主张</a></li>
+      <li><a href="/ai-club/" data-nav="club">AI 研习社</a></li>
     </ul>
     <div class="nav-right">
-      <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
     </div>
   </div>
 </nav>
@@ -208,15 +206,15 @@
 <section class="product-hero">
   <div class="container product-hero-inner">
     <div>
-      <div class="reveal"><div class="product-badge" data-i18n="hero.badge">Miraphant Product</div></div>
+      <div class="reveal"><div class="product-badge" data-i18n="hero.badge">序动科技 产品</div></div>
       <div class="reveal rd1">
         <h1>Otto</h1>
-        <p class="sub" style="font-size:18px;font-weight:600;color:var(--gray-700)" data-i18n="hero.tagline">Your AI digital colleague</p>
-        <p class="sub" data-i18n="hero.sub">Otto lives in your terminal, your desktop, and your organization — bringing AI intelligence to every corner of your work.</p>
+        <p class="sub" style="font-size:18px;font-weight:600;color:var(--gray-700)" data-i18n="hero.tagline">你的 AI 数字同事</p>
+        <p class="sub" data-i18n="hero.sub">Otto 住在你的终端、你的桌面和你的组织中——将 AI 智能带到你工作的每个角落。</p>
       </div>
       <div class="reveal rd2" style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="#downloads" class="btn-download" data-i18n="hero.dl">⬇ Download Desktop</a>
-        <a href="#editions" class="btn-secondary" data-i18n="hero.editions">Editions →</a>
+        <a href="#downloads" class="btn-download" data-i18n="hero.dl">⬇ 下载桌面版</a>
+        <a href="#editions" class="btn-secondary" data-i18n="hero.editions">版本 →</a>
       </div>
     </div>
     <div class="reveal rd3 product-stage" aria-hidden="true" style="background:var(--gray-50);border-radius:20px;border:1px solid var(--gray-200);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:48px;color:var(--gray-300)">
@@ -235,25 +233,25 @@
 <section class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:600px">
-      <div class="label" data-i18n="pillars.label">Otto's DNA</div>
-      <h2 class="section-title" data-i18n="pillars.title">Four principles that define Otto</h2>
+      <div class="label" data-i18n="pillars.label">Otto 的 DNA</div>
+      <h2 class="section-title" data-i18n="pillars.title">定义 Otto 的四大原则</h2>
     </div>
     <div class="otto-pillars" style="margin-top:24px">
       <div class="otto-pillar reveal rd1">
-        <div class="keyword" style="color:var(--black)">ORCHESTRATE</div>
-        <p data-i18n="pillars.p1">Otto orchestrates models, tools, and APIs into seamless workflows. From code generation to Feishu integration, every capability is composed, not bolted on.</p>
+        <div class="keyword" style="color:var(--black)">任务编排</div>
+        <p data-i18n="pillars.p1">Otto 将模型、工具和 API 编排成无缝工作流。从代码生成到飞书集成，每个能力都是组合的，而非拼接的。</p>
       </div>
       <div class="otto-pillar reveal rd2">
-        <div class="keyword" style="color:var(--gray-500)">TRUST</div>
-        <p data-i18n="pillars.p2">Your data stays yours. Otto Enterprise deploys on your LAN with zero data leaving your network. Open-source core, transparent operations, no vendor lock-in.</p>
+        <div class="keyword" style="color:var(--gray-500)">可信协作</div>
+        <p data-i18n="pillars.p2">你的数据永远属于你。Otto Enterprise 部署在你的局域网中，零数据离开你的网络。开源核心、透明操作、无供应商锁定。</p>
       </div>
       <div class="otto-pillar reveal rd3">
-        <div class="keyword" style="color:var(--black)">TRANSFORM</div>
-        <p data-i18n="pillars.p3">Otto transforms how teams work — replacing fragmented toolchains with a single AI colleague. One assistant for developers, operators, and executives alike.</p>
+        <div class="keyword" style="color:var(--black)">组织转型</div>
+        <p data-i18n="pillars.p3">Otto 转变团队的工作方式——用单一的 AI 同事取代碎片化的工具链。一个助手，适用于开发者、运营人员和高管。</p>
       </div>
       <div class="otto-pillar reveal rd4">
-        <div class="keyword" style="color:var(--gray-500)">OUTPUT</div>
-        <p data-i18n="pillars.p4">Every feature is measured by what it ships. Code deployed, documents generated, tasks automated. Otto optimizes for results, not potential.</p>
+        <div class="keyword" style="color:var(--gray-500)">成果交付</div>
+        <p data-i18n="pillars.p4">每个功能都用它交付了什么来衡量。代码部署、文档生成、任务自动化。Otto 为结果优化，而非潜力。</p>
       </div>
     </div>
   </div>
@@ -263,28 +261,28 @@
 <section class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:680px">
-      <div class="label" data-i18n="memory.label">Organizational Memory</div>
-      <h2 class="section-title" data-i18n="memory.title">An AI colleague that remembers how your company works</h2>
-      <p class="section-sub" data-i18n="memory.sub">Otto helps employees reuse the right knowledge, helps managers understand what is working, and helps leaders control access, cost, and outcomes.</p>
+      <div class="label" data-i18n="memory.label">组织记忆</div>
+      <h2 class="section-title" data-i18n="memory.title">一个真正懂公司如何运转的 AI 同事</h2>
+      <p class="section-sub" data-i18n="memory.sub">Otto 帮员工复用正确知识，帮负责人看清团队工作成效，也帮老板控制权限、成本和产出。</p>
     </div>
     <div class="memory-grid">
-      <div class="memory-card reveal rd1"><h3 data-i18n="memory.c1.t">Employee work profile</h3><p data-i18n="memory.c1.d">Each employee gets a private work profile: responsibilities, preferences, common tasks, and the best ways Otto should help them.</p></div>
-      <div class="memory-card reveal rd2"><h3 data-i18n="memory.c2.t">Project continuity</h3><p data-i18n="memory.c2.d">Every campaign, client delivery, report, hiring plan, contract review, or internal initiative can keep its own shared memory.</p></div>
-      <div class="memory-card reveal rd3"><h3 data-i18n="memory.c3.t">Department playbook library</h3><p data-i18n="memory.c3.d">Teams can reuse approved ways of working: report templates, meeting summaries, sales follow-ups, research flows, and document production.</p></div>
-      <div class="memory-card reveal rd1"><h3 data-i18n="memory.c4.t">Controlled access</h3><p data-i18n="memory.c4.d">Leaders decide who can use which knowledge, which playbooks, which models, and how much budget each team or project receives.</p></div>
-      <div class="memory-card reveal rd2"><h3 data-i18n="memory.c5.t">Project knowledge base</h3><p data-i18n="memory.c5.d">Project knowledge stays available after meetings end: decisions, files, outputs, risks, next steps, and reusable lessons.</p></div>
-      <div class="memory-card reveal rd3"><h3 data-i18n="memory.c6.t">Management visibility</h3><p data-i18n="memory.c6.d">Managers see team usage, project progress, cost distribution, repeated work, and which playbooks should be standardized.</p></div>
+      <div class="memory-card reveal rd1"><h3 data-i18n="memory.c1.t">员工工作画像</h3><p data-i18n="memory.c1.d">每个员工都有自己的工作画像：岗位职责、偏好、常做任务，以及 Otto 应该如何更好地协助他。</p></div>
+      <div class="memory-card reveal rd2"><h3 data-i18n="memory.c2.t">项目持续记忆</h3><p data-i18n="memory.c2.d">一次活动、一次客户交付、一份汇报、一次招聘、一次合同审核或一个内部计划，都可以拥有自己的项目记忆。</p></div>
+      <div class="memory-card reveal rd3"><h3 data-i18n="memory.c3.t">部门工作方法库</h3><p data-i18n="memory.c3.d">部门可以复用经过验证的工作方法：汇报模板、会议纪要、销售跟进、调研流程、文档创作等。</p></div>
+      <div class="memory-card reveal rd1"><h3 data-i18n="memory.c4.t">权限可控</h3><p data-i18n="memory.c4.d">老板和部门负责人可以决定谁能用哪些知识、哪些工作方法、哪些模型，以及每个团队或项目的预算。</p></div>
+      <div class="memory-card reveal rd2"><h3 data-i18n="memory.c5.t">项目知识库</h3><p data-i18n="memory.c5.d">会议结束后，项目知识不会消失：决策、文件、产出、风险、下一步和可复用经验都会被保留下来。</p></div>
+      <div class="memory-card reveal rd3"><h3 data-i18n="memory.c6.t">管理可视化</h3><p data-i18n="memory.c6.d">负责人能看到团队使用情况、项目进展、成本分布、重复工作，以及哪些方法值得标准化。</p></div>
     </div>
-    <div class="memory-flow reveal rd4" data-i18n="memory.flow">For employees: less repeated explanation. For managers: clearer project and team visibility. For leaders: controlled rollout, measurable usage, and reusable company capability. Typical outcomes include faster onboarding, more consistent documents, better project handover, reusable department workflows, and clearer AI spending.</div>
+    <div class="memory-flow reveal rd4" data-i18n="memory.flow">对员工：不用反复解释背景。对负责人：更清楚项目和团队情况。对老板：可控推广、可衡量使用、可沉淀公司能力。典型结果包括新人更快上手、文档更一致、项目交接更顺畅、部门流程可复用、AI 花费更清楚。</div>
     <div class="memory-grid" style="margin-top:24px">
-      <div class="memory-card reveal rd1"><h3 data-i18n="memory.r1.t">For employees</h3><p data-i18n="memory.r1.d">Otto remembers project background, preferred formats, previous files, and common tasks, so employees can ask for a report, proposal, follow-up message, meeting summary, or data table without explaining everything again.</p></div>
-      <div class="memory-card reveal rd2"><h3 data-i18n="memory.r2.t">For department leads</h3><p data-i18n="memory.r2.d">Leads can see which projects are active, where time and AI budget are going, which work is repeated often, and which team methods should become approved templates.</p></div>
-      <div class="memory-card reveal rd3"><h3 data-i18n="memory.r3.t">For company owners</h3><p data-i18n="memory.r3.d">Owners can roll out AI safely: assign licenses, control who can use company knowledge, monitor spending, and turn proven team workflows into company-wide capability.</p></div>
+      <div class="memory-card reveal rd1"><h3 data-i18n="memory.r1.t">给员工</h3><p data-i18n="memory.r1.d">Otto 会记住项目背景、常用格式、历史文件和常见任务。员工要写汇报、方案、客户跟进、会议纪要或数据表时，不用每次重新解释。</p></div>
+      <div class="memory-card reveal rd2"><h3 data-i18n="memory.r2.t">给部门负责人</h3><p data-i18n="memory.r2.d">负责人能看到哪些项目正在推进、时间和 AI 预算花在哪里、哪些工作被反复执行，以及哪些团队方法值得沉淀成标准模板。</p></div>
+      <div class="memory-card reveal rd3"><h3 data-i18n="memory.r3.t">给老板</h3><p data-i18n="memory.r3.d">老板可以安全推广 AI：分发许可证，控制谁能使用公司知识，查看花费，并把被验证过的团队流程变成公司能力。</p></div>
     </div>
-    <div class="memory-flow reveal rd4" data-i18n="memory.examples">Example uses: onboarding a new hire with department knowledge, preparing weekly reports from previous formats, keeping client delivery context across weeks, standardizing event review documents, reusing approved sales follow-up flows, and seeing which teams produce the best AI-assisted outcomes.</div>
+    <div class="memory-flow reveal rd4" data-i18n="memory.examples">典型场景：新人快速继承部门知识；周报沿用历史格式；客户交付跨周保持上下文；活动复盘文档标准化；销售跟进流程复用；老板看清哪些团队真正产出 AI 效率。</div>
     <div class="memory-flow reveal rd4">
-      <strong data-i18n="memory.update.t">Latest small update</strong><br>
-      <span data-i18n="memory.update.d">This update clarifies Otto Enterprise for customers and adds stronger document intelligence: employee work profiles, project continuity, department playbook libraries, controlled access, management visibility, practical usage scenarios, high-efficiency PDF content parsing with OpenDataLoader, and a new PDF parsing expert.</span>
+      <strong data-i18n="memory.update.t">本次小版本更新</strong><br>
+      <span data-i18n="memory.update.d">本次更新重点补充 Otto Enterprise 的客户价值说明，并增强文档智能：员工工作画像、项目持续记忆、部门工作方法库、权限可控、管理可视化、具体业务使用场景，同时使用 OpenDataLoader 进行高效 PDF 内容解析，并新增 PDF 解析专家。</span>
     </div>
 
 
@@ -295,42 +293,42 @@
 <section class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:720px">
-      <div class="label" data-i18n="release.label">Minor Update</div>
-      <h2 class="section-title" data-i18n="release.title">Better knowledge reuse, stronger document understanding</h2>
-      <p class="section-sub" data-i18n="release.sub">This small update focuses on practical enterprise work: helping teams remember project context, reuse department methods, and process PDF-heavy documents faster.</p>
+      <div class="label" data-i18n="release.label">小版本更新</div>
+      <h2 class="section-title" data-i18n="release.title">更好的知识复用，更强的文档理解</h2>
+      <p class="section-sub" data-i18n="release.sub">这个小版本面向真实企业工作：帮助团队记住项目背景、复用部门方法，并更快处理大量 PDF 文档。</p>
     </div>
     <div class="memory-grid">
-      <div class="memory-card reveal rd1"><h3 data-i18n="release.c1.t">PDF parsing expert</h3><p data-i18n="release.c1.d">A new expert helps employees read contracts, reports, research papers, manuals, and scanned business documents, then turn them into summaries, tables, checklists, or drafts.</p></div>
-      <div class="memory-card reveal rd2"><h3 data-i18n="release.c2.t">Faster document intake</h3><p data-i18n="release.c2.d">Large PDF files can be parsed more efficiently, so teams spend less time copying content and more time reviewing decisions, risks, numbers, and next actions.</p></div>
-      <div class="memory-card reveal rd3"><h3 data-i18n="release.c3.t">Project memory upgrade</h3><p data-i18n="release.c3.d">Important project files, decisions, outputs, and reusable lessons can stay connected to the project instead of disappearing in chat history.</p></div>
-      <div class="memory-card reveal rd1"><h3 data-i18n="release.c4.t">Department playbooks</h3><p data-i18n="release.c4.d">Repeated team work can become approved playbooks, making reports, reviews, follow-ups, and document creation more consistent across the department.</p></div>
-      <div class="memory-card reveal rd2"><h3 data-i18n="release.c5.t">Manager visibility</h3><p data-i18n="release.c5.d">Managers get clearer signals on which tasks are repeated, where AI budget is going, and which work methods are worth standardizing.</p></div>
-      <div class="memory-card reveal rd3"><h3 data-i18n="release.c6.t">Controlled rollout</h3><p data-i18n="release.c6.d">Leaders can assign usage rights by person, department, or project, keeping company knowledge and AI spending under control.</p></div>
+      <div class="memory-card reveal rd1"><h3 data-i18n="release.c1.t">PDF 解析专家</h3><p data-i18n="release.c1.d">新的专家可以帮助员工阅读合同、报告、论文、手册和业务文档，并转成摘要、表格、清单或初稿。</p></div>
+      <div class="memory-card reveal rd2"><h3 data-i18n="release.c2.t">更快的文档接收</h3><p data-i18n="release.c2.d">大体量 PDF 可以被更高效地解析，团队不用反复复制内容，而是专注于判断、风险、数字和下一步。</p></div>
+      <div class="memory-card reveal rd3"><h3 data-i18n="release.c3.t">项目记忆升级</h3><p data-i18n="release.c3.d">重要项目文件、决策、产出和可复用经验可以跟项目保持关联，不再消失在聊天记录里。</p></div>
+      <div class="memory-card reveal rd1"><h3 data-i18n="release.c4.t">部门工作方法库</h3><p data-i18n="release.c4.d">重复出现的团队工作可以沉淀为经过确认的方法，让汇报、复盘、跟进和文档创作更加一致。</p></div>
+      <div class="memory-card reveal rd2"><h3 data-i18n="release.c5.t">负责人可视化</h3><p data-i18n="release.c5.d">负责人可以更清楚地看到哪些任务反复出现、AI预算花在哪里、哪些工作方法值得标准化。</p></div>
+      <div class="memory-card reveal rd3"><h3 data-i18n="release.c6.t">可控推广</h3><p data-i18n="release.c6.d">老板可以按人、部门或项目分配使用权，让公司知识和 AI 花费保持可控。</p></div>
     </div>
-    <div class="memory-flow reveal rd4" data-i18n="release.examples">Typical uses: summarize supplier contracts, compare tender documents, extract tables from reports, prepare meeting briefs, build due-diligence notes, review policy documents, and preserve the final output as project knowledge.</div>
+    <div class="memory-flow reveal rd4" data-i18n="release.examples">典型用途：总结供应商合同、对比招标文件、提取报告表格、准备会议简报、生成尽调笔记、审核制度文件，并将最终产出保存在项目知识中。</div>
   </div>
 </section>
 
 <section id="editions" class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:600px">
-      <div class="label" data-i18n="editions.label">Editions</div>
-      <h2 class="section-title" data-i18n="editions.title">One AI, three forms</h2>
+      <div class="label" data-i18n="editions.label">版本</div>
+      <h2 class="section-title" data-i18n="editions.title">一个 AI，三种形态</h2>
     </div>
     <div class="edition-card reveal rd1" style="margin-top:24px">
       <div>
-        <div class="ed-card-badge" data-i18n="editions.desktop.badge">Desktop App</div>
-        <h3 data-i18n="editions.desktop.title">Otto Desktop</h3>
-        <div class="desc" data-i18n="editions.desktop.desc">AI-native desktop experience for macOS. Otto lives in your menubar, learns your workflows, and automates your routines. Bring intelligence to every application you use.</div>
+        <div class="ed-card-badge" data-i18n="editions.desktop.badge">桌面应用</div>
+        <h3 data-i18n="editions.desktop.title">Otto 桌面版</h3>
+        <div class="desc" data-i18n="editions.desktop.desc">macOS 的 AI 原生桌面体验。Otto 驻留在你的菜单栏中，学习你的工作流，自动化你的日常操作。</div>
         <ul>
-          <li data-i18n="editions.desktop.l1">Native macOS app (Apple Silicon)</li>
-          <li data-i18n="editions.desktop.l2">AI-powered desktop automation</li>
-          <li data-i18n="editions.desktop.l3">Workflow learning and suggestions</li>
-          <li data-i18n="editions.desktop.l4">Voice interaction ready</li>
+          <li data-i18n="editions.desktop.l1">原生 macOS 应用 (Apple Silicon)</li>
+          <li data-i18n="editions.desktop.l2">AI 驱动的桌面自动化</li>
+          <li data-i18n="editions.desktop.l3">工作流学习与建议</li>
+          <li data-i18n="editions.desktop.l4">语音交互就绪</li>
         </ul>
         <div id="downloads">
-          <a id="otto-dl-btn" href="https://github.com/Felix201209/otto-releases/releases/latest" class="btn-download" data-i18n="editions.desktop.dl">⬇ Download for macOS (ARM)</a>
-          <div class="download-info" id="otto-dl-info" data-i18n="editions.desktop.info">Detecting your platform…</div>
+          <a id="otto-dl-btn" href="https://github.com/Felix201209/otto-releases/releases/latest" class="btn-download" data-i18n="editions.desktop.dl">⬇ 下载 macOS (ARM) 版</a>
+          <div class="download-info" id="otto-dl-info" data-i18n="editions.desktop.info">正在检测你的平台…</div>
         </div>
       </div>
       <div style="background:var(--gray-50);border-radius:12px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-100)">
@@ -346,17 +344,17 @@
     </div>
     <div class="edition-card reveal rd2">
       <div>
-        <div class="ed-card-badge" data-i18n="editions.code.badge">CLI + Feishu Bot</div>
-        <h3 data-i18n="editions.code.title">Otto Code</h3>
-        <div class="desc" data-i18n="editions.code.desc">A terminal-native AI agent and Feishu digital colleague. Code generation, debugging, MCP context management, and deep integration with 18+ Feishu business domains.</div>
+        <div class="ed-card-badge" data-i18n="editions.code.badge">CLI + 飞书机器人</div>
+        <h3 data-i18n="editions.code.title">Otto 编程助手</h3>
+        <div class="desc" data-i18n="editions.code.desc">终端原生的 AI 代理和飞书数字同事。代码生成、调试、MCP 上下文管理，深度飞书集成。</div>
         <ul>
-          <li data-i18n="editions.code.l1">CLI agent with full terminal control</li>
-          <li data-i18n="editions.code.l2">Feishu bot — calendar, docs, sheets, tasks, OKRs, wiki</li>
-          <li data-i18n="editions.code.l3">Multi-model: CodeX, DeepSeek, Claude, GLM</li>
-          <li data-i18n="editions.code.l4">MCP protocol and tool ecosystem</li>
+          <li data-i18n="editions.code.l1">完全终端控制的 CLI 代理</li>
+          <li data-i18n="editions.code.l2">飞书机器人 — 日历、文档、表格、任务、OKR、知识库</li>
+          <li data-i18n="editions.code.l3">多模型：CodeX、DeepSeek、Claude、GLM</li>
+          <li data-i18n="editions.code.l4">MCP 协议与工具生态</li>
         </ul>
         <div>
-          <a href="https://github.com/NSIETeam/otto" class="btn-secondary" data-i18n="editions.code.gh" style="margin-right:8px">View on GitHub →</a>
+          <a href="https://github.com/NSIETeam/otto" class="btn-secondary" data-i18n="editions.code.gh" style="margin-right:8px">在 GitHub 上查看 →</a>
           <span class="download-info">npm i -g otto-ai</span>
         </div>
       </div>
@@ -366,18 +364,18 @@
     </div>
     <div class="edition-card highlight reveal rd3">
       <div>
-        <div class="ed-card-badge" data-i18n="editions.enterprise.badge">Enterprise</div>
-        <h3 data-i18n="editions.enterprise.title">Otto Enterprise</h3>
-        <div class="desc" data-i18n="editions.enterprise.desc">LAN-deployed enterprise AI agent for the entire organization. Server-client architecture with zero data leaving your network. Designed for non-technical employees.</div>
+        <div class="ed-card-badge" data-i18n="editions.enterprise.badge">企业版</div>
+        <h3 data-i18n="editions.enterprise.title">Otto 企业版</h3>
+        <div class="desc" data-i18n="editions.enterprise.desc">局域网部署的企业级 AI 代理。服务器-客户端架构，零数据离开你的网络。</div>
         <ul>
-          <li data-i18n="editions.enterprise.l1">LAN server-client architecture</li>
-          <li data-i18n="editions.enterprise.l2">9 core tools: automation, conversion, document generation</li>
-          <li data-i18n="editions.enterprise.l3">Zero data leaves your network</li>
-          <li data-i18n="editions.enterprise.l4">Admin dashboard with local SQLite</li>
-          <li data-i18n="editions.enterprise.l5">Desktop automation (17 actions), 50+ format conversions</li>
+          <li data-i18n="editions.enterprise.l1">局域网服务端-客户端架构</li>
+          <li data-i18n="editions.enterprise.l2">9 个核心工具：自动化、转换、文档生成</li>
+          <li data-i18n="editions.enterprise.l3">零数据离开你的网络</li>
+          <li data-i18n="editions.enterprise.l4">本地 SQLite 管理后台</li>
+          <li data-i18n="editions.enterprise.l5">桌面自动化（17 种操作），50+ 格式转换</li>
         </ul>
         <div>
-          <a href="mailto:NSIETeam@outlook.com?subject=Otto%20Enterprise" class="btn-primary" data-i18n="editions.enterprise.cta">Contact for Enterprise →</a>
+          <a href="mailto:NSIETeam@outlook.com?subject=Otto%20Enterprise" class="btn-primary" data-i18n="editions.enterprise.cta">联系企业版 →</a>
         </div>
       </div>
       <div style="background:var(--gray-50);border-radius:12px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-100)">
@@ -399,8 +397,8 @@
 <section class="section border-b">
   <div class="container">
     <div class="reveal" style="max-width:600px">
-      <div class="label" data-i18n="tech.label">Technology</div>
-      <h2 class="section-title" data-i18n="tech.title">Built on modern AI infrastructure</h2>
+      <div class="label" data-i18n="tech.label">技术栈</div>
+      <h2 class="section-title" data-i18n="tech.title">构建在现代 AI 基础设施之上</h2>
     </div>
     <div class="reveal rd1" style="margin-top:32px">
       <div class="tech-list">
@@ -424,12 +422,12 @@
 <div class="cta-section">
   <div class="container">
     <div class="reveal">
-      <div class="label" data-i18n="cta.label">Get Started</div>
-      <h2 class="section-title" data-i18n="cta.title">Give everyone an AI colleague</h2>
-      <p class="sub" data-i18n="cta.sub">Download Otto Desktop, try Otto Code, or bring Otto Enterprise to your organization.</p>
+      <div class="label" data-i18n="cta.label">开始使用</div>
+      <h2 class="section-title" data-i18n="cta.title">让每个人都拥有 AI 同事</h2>
+      <p class="sub" data-i18n="cta.sub">下载 Otto Desktop，试用 Otto Code，或将 Otto Enterprise 带到你的组织。</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="#downloads" class="btn-primary" data-i18n="cta.dl">⬇ Download Now</a>
-        <a href="mailto:NSIETeam@outlook.com" class="btn-secondary" data-i18n="cta.enterprise" style="border-color:var(--gray-700);color:var(--white)">Enterprise Inquiries</a>
+        <a href="#downloads" class="btn-primary" data-i18n="cta.dl">⬇ 立即下载</a>
+        <a href="mailto:NSIETeam@outlook.com" class="btn-secondary" data-i18n="cta.enterprise" style="border-color:var(--gray-700);color:var(--white)">企业咨询</a>
       </div>
     </div>
   </div>
@@ -437,12 +435,12 @@
 
 <footer>
   <div class="container footer-inner">
-    <span>© 2026 Miraphant, Inc.</span>
+    <span>© 2026 序动科技</span>
     <div class="footer-meta-actions">
-      <span data-i18n="footer.product">Otto — A Miraphant Product</span>
+      <span data-i18n="footer.product">Otto — 序动科技 产品</span>
       <div class="language-menu">
         <button class="language-trigger" type="button" aria-label="Language" aria-haspopup="menu" aria-expanded="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="language-current">English</span><svg class="language-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="language-popover" role="menu" aria-label="Language"><button class="lang-btn active" type="button" role="menuitemradio" aria-checked="true" data-lang="en"><span>English</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button><button class="lang-btn" type="button" role="menuitemradio" aria-checked="false" data-lang="zh"><span>中文</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button></div>
+        <div class="language-popover" role="menu" aria-label="Language"><button class="lang-btn active" type="button" role="menuitemradio" aria-checked="true" data-lang="zh-CN"><span>English</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button><button class="lang-btn" type="button" role="menuitemradio" aria-checked="false" data-lang="zh"><span>中文</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button></div>
       </div>
     </div>
   </div>
@@ -452,7 +450,7 @@
 const i18n = {
   en: {
     'nav.back': '← Back',
-    'hero.badge': 'Miraphant Product',
+    'hero.badge': '序动科技 Product',
     'hero.tagline': 'Your AI digital colleague',
     'hero.sub': 'Otto lives in your terminal, your desktop, and your organization — bringing AI intelligence to every corner of your work.',
     'hero.dl': '⬇ Download Desktop',
@@ -539,11 +537,11 @@ const i18n = {
     'cta.sub': 'Download Otto Desktop, try Otto Code, or bring Otto Enterprise to your organization.',
     'cta.dl': '⬇ Download Now',
     'cta.enterprise': 'Enterprise Inquiries',
-    'footer.product': 'Otto — A Miraphant Product',
+    'footer.product': 'Otto — A 序动科技 Product',
   },
   zh: {
     'nav.back': '← 返回',
-    'hero.badge': 'Miraphant 产品',
+    'hero.badge': '序动科技 产品',
     'hero.tagline': '你的 AI 数字同事',
     'hero.sub': 'Otto 住在你的终端、你的桌面和你的组织中——将 AI 智能带到你工作的每个角落。',
     'hero.dl': '⬇ 下载桌面版',
@@ -630,7 +628,7 @@ const i18n = {
     'cta.sub': '下载 Otto Desktop，试用 Otto Code，或将 Otto Enterprise 带到你的组织。',
     'cta.dl': '⬇ 立即下载',
     'cta.enterprise': '企业咨询',
-    'footer.product': 'Otto — Miraphant 产品',
+    'footer.product': 'Otto — 序动科技 产品',
   }
 };
 
