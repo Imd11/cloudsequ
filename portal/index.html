@@ -48,14 +48,14 @@
 </head>
 <body class="mf-workspace page-workspace page-portal">
 <script src="../js/auth.js"></script>
-<script>if(!window.checkAuth())window.location.href="/miraphant/#employee-portal";</script>
+<script>if(!window.checkAuth())window.location.href="/#employee-portal";</script>
 <nav class="portal-nav" id="nav" aria-label="Workspace"><div class="portal-nav-inner">
-<a href="/miraphant/" class="portal-nav-logo"><img src="../logo.png" style="width:32px;height:32px" alt="Miraphant"> Miraphant</a>
+<a href="/" class="portal-nav-logo"><img src="../logo.png" style="width:32px;height:32px" alt="Miraphant"> Miraphant</a>
 <ul class="portal-nav-links" id="navLinks">
-<li><a href="/miraphant/portal/" class="active">Dashboard</a></li>
-<li><a href="/miraphant/oa/">OA</a></li>
-<li><a href="/miraphant/followup/">Follow-up</a></li>
-<li><a href="/miraphant/changelog/">Log</a></li>
+<li><a href="/portal/" class="active">Dashboard</a></li>
+<li><a href="/oa/">OA</a></li>
+<li><a href="/followup/">Follow-up</a></li>
+<li><a href="/changelog/">Log</a></li>
 </ul>
 <div class="portal-nav-right"><button class="portal-logout-btn" onclick="doLogout()">Logout</button></div>
 <button class="portal-nav-toggle" id="navToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
@@ -83,11 +83,11 @@
 <section class="dash-section"><div class="container">
 <div class="dash-grid">
 <div class="dash-card reveal">
-<div class="dash-card-head"><h3>My Pending Items</h3><a href="/miraphant/oa/" class="dash-card-link">View OA</a></div>
+<div class="dash-card-head"><h3>My Pending Items</h3><a href="/oa/" class="dash-card-link">View OA</a></div>
 <div id="todoList"></div>
 </div>
 <div class="dash-card reveal">
-<div class="dash-card-head"><h3>Project Status</h3><a href="/miraphant/followup/" class="dash-card-link">View All</a></div>
+<div class="dash-card-head"><h3>Project Status</h3><a href="/followup/" class="dash-card-link">View All</a></div>
 <div id="projList"></div>
 </div>
 </div>
@@ -174,10 +174,10 @@ document.getElementById('dashStats').innerHTML=stats.map(function(s){return'<div
 
 function renderQA(){
 var actions=[
-{href:'/miraphant/oa/',icon:'M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z',label:'New Reimbursement'},
-{href:'/miraphant/oa/',icon:'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',label:'New Leave'},
-{href:'/miraphant/oa/',icon:'M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z',label:'New Travel'},
-{href:'/miraphant/followup/',icon:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2',label:'Update Status'}
+{href:'/oa/',icon:'M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z',label:'New Reimbursement'},
+{href:'/oa/',icon:'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',label:'New Leave'},
+{href:'/oa/',icon:'M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z',label:'New Travel'},
+{href:'/followup/',icon:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2',label:'Update Status'}
 ];
 document.getElementById('qaGrid').innerHTML=actions.map(function(a){return'<a href="'+a.href+'" class="qa-btn"><svg viewBox="0 0 24 24"><path d="'+a.icon+'"/></svg><span>'+a.label+'</span></a>'}).join('');
 }
@@ -187,9 +187,9 @@ var r=DB.get('oa-reimburse',[]).filter(function(x){return x.applicant===cu.name&
 var l=DB.get('oa-leave',[]).filter(function(x){return x.applicant===cu.name&&x.status==='pending'});
 var tr=DB.get('oa-travel',[]).filter(function(x){return x.applicant===cu.name&&x.status==='pending'});
 var items=[];
-r.forEach(function(x){items.push({dot:'yellow',title:x.reason,meta:'Reimbursement / '+x.date,action:'/miraphant/oa/',actionLabel:'Review'})});
-l.forEach(function(x){items.push({dot:'yellow',title:x.reason,meta:'Leave / '+x.startDate+' - '+x.endDate,action:'/miraphant/oa/',actionLabel:'Review'})});
-tr.forEach(function(x){items.push({dot:'yellow',title:x.destination+': '+x.purpose,meta:'Travel / '+x.startDate,action:'/miraphant/oa/',actionLabel:'Review'})});
+r.forEach(function(x){items.push({dot:'yellow',title:x.reason,meta:'Reimbursement / '+x.date,action:'/oa/',actionLabel:'Review'})});
+l.forEach(function(x){items.push({dot:'yellow',title:x.reason,meta:'Leave / '+x.startDate+' - '+x.endDate,action:'/oa/',actionLabel:'Review'})});
+tr.forEach(function(x){items.push({dot:'yellow',title:x.destination+': '+x.purpose,meta:'Travel / '+x.startDate,action:'/oa/',actionLabel:'Review'})});
 var el=document.getElementById('todoList');
 if(items.length===0){el.innerHTML='<div class="empty">No pending items. You are all caught up.</div>';return}
 el.innerHTML=items.map(function(i){return'<div class="todo-item"><div class="todo-dot '+i.dot+'"></div><div class="todo-text"><div class="title">'+esc(i.title)+'</div><div class="meta">'+esc(i.meta)+'</div></div><a href="'+i.action+'" class="todo-action">'+i.actionLabel+'</a></div>'}).join('');
@@ -199,7 +199,7 @@ function renderProjects(){
 var fu=getFollowupLatestPerRepo();
 var statusMap={on:{cls:'ps-on',label:'Active'},done:{cls:'ps-done',label:'Done'},hold:{cls:'ps-hold',label:'On Hold'},plan:{cls:'ps-plan',label:'Planned'},risk:{cls:'ps-risk',label:'At Risk'}};
 var el=document.getElementById('projList');
-if(fu.length===0){el.innerHTML='<div class="empty">No project updates yet. <a href="/miraphant/followup/" style="color:#fff">Add one</a>.</div>';return}
+if(fu.length===0){el.innerHTML='<div class="empty">No project updates yet. <a href="/followup/" style="color:#fff">Add one</a>.</div>';return}
 el.innerHTML=fu.map(function(p){var s=statusMap[p.status]||statusMap.plan;return'<div class="proj-item"><span class="proj-badge pb-'+p.repo.toLowerCase()+'">'+esc(p.repoName)+'</span><div class="proj-text"><div class="title">'+p.title+'</div><div class="meta">'+esc(p.next||'\u2014')+'</div></div><span class="proj-status '+s.cls+'">'+s.label+'</span></div>'}).join('');
 }
 
@@ -208,7 +208,7 @@ function renderAll(){renderStats();renderQA();renderTodos();renderProjects()}
 var nav=document.getElementById('nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
 document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
 var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
-document.querySelectorAll('a[href^="/miraphant/"]').forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h){e.preventDefault();document.body.style.opacity='0';document.body.style.transition='opacity .15s';setTimeout(function(){window.location.href=h},150)}})});
+document.querySelectorAll('a[href^="/"]').forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h){e.preventDefault();document.body.style.opacity='0';document.body.style.transition='opacity .15s';setTimeout(function(){window.location.href=h},150)}})});
 seedOA();seedFollowupIfEmpty();renderAll();
 </script>
 <script src="../js/site.js"></script>
