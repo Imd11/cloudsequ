@@ -45,10 +45,10 @@
 @media(max-width:768px){.dash-grid{grid-template-columns:1fr}.qa-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 <link rel="stylesheet" href="../css/workspace.css">
-<link rel="stylesheet" href="/css/brand.css">
+<link rel="stylesheet" href="/css/brand.css?v=20260928-zh">
 </head>
 <body class="mf-workspace page-workspace page-portal">
-<script src="../js/auth.js"></script>
+<script src="../js/auth.js?v=20260928-zh"></script>
 <script>if(!window.checkAuth())window.location.href="/#employee-portal";</script>
 <nav class="portal-nav" id="nav" aria-label="Workspace"><div class="portal-nav-inner">
 <a href="/" class="portal-nav-logo"><span class="xudong-wordmark">序动科技</span></a>
@@ -212,6 +212,6 @@ var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isInters
 document.querySelectorAll('a[href^="/"]').forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h){e.preventDefault();document.body.style.opacity='0';document.body.style.transition='opacity .15s';setTimeout(function(){window.location.href=h},150)}})});
 seedOA();seedFollowupIfEmpty();renderAll();
 </script>
-<script src="../js/site.js"></script>
+<script src="../js/site.js?v=20260928-zh"></script>
 </body>
 </html>
