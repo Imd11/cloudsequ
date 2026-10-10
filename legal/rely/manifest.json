@@ -1,0 +1,37 @@
+{
+  "product": "rely",
+  "version": "v0.1-draft",
+  "status": "draft",
+  "effectiveAt": null,
+  "bundleHash": "cf2a29b5d9fdd6251fa848e6f4bd047df43c3792e035343e09e49704d4488175",
+  "documents": [
+    {
+      "id": "terms",
+      "title": "用户协议",
+      "sha256": "4cb25988475f4ac7a87e0cc0d7116536ed293497d8bb921ebc87b8cbf80936b6",
+      "url": "https://cloudsequ.com/legal/rely/terms/",
+      "archiveUrl": "https://cloudsequ.com/legal/rely/versions/v0.1-draft/terms/"
+    },
+    {
+      "id": "privacy",
+      "title": "隐私政策",
+      "sha256": "57349cc878cde17fb15d1c2af98c9380cb68ab5d8d7b05b7484ecde00c66a07f",
+      "url": "https://cloudsequ.com/legal/rely/privacy/",
+      "archiveUrl": "https://cloudsequ.com/legal/rely/versions/v0.1-draft/privacy/"
+    },
+    {
+      "id": "usage",
+      "title": "AI 内容使用规范",
+      "sha256": "1c7b86de57b13d90b97f42a09fb5d51ed42753ffde56bf803cc25c72f4cd59a9",
+      "url": "https://cloudsequ.com/legal/rely/usage/",
+      "archiveUrl": "https://cloudsequ.com/legal/rely/versions/v0.1-draft/usage/"
+    },
+    {
+      "id": "providers",
+      "title": "第三方服务清单",
+      "sha256": "6c9675923d0a67b70c9a411f3d96a4f043e876118567f33a4f696d8264ad98f1",
+      "url": "https://cloudsequ.com/legal/rely/providers/",
+      "archiveUrl": "https://cloudsequ.com/legal/rely/versions/v0.1-draft/providers/"
+    }
+  ]
+}
