@@ -1,0 +1,13 @@
+{
+  "documents": [
+    {
+      "id": "providers",
+      "title": "第三方服务与个人信息处理清单",
+      "version": "providers-20261011",
+      "status": "published",
+      "url": "https://cloudsequ.com/legal/rely/providers/",
+      "archiveUrl": "https://cloudsequ.com/legal/rely/versions/providers-20261011/providers/",
+      "sha256": "58af815c7e1ab971bcd317be045a0a64243a48d8e577e08488f1b39d295821ce"
+    }
+  ]
+}

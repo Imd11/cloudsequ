@@ -1,16 +1,14 @@
 # Rely 协议页面维护
 
-固定入口为 `/legal/rely/terms/`、`/legal/rely/privacy/`，补充页为 `usage/` 和 `providers/`。页面无需登录，无跟踪脚本。版本全文保存在 `/legal/rely/versions/<版本>/`。
+固定入口为 `/legal/rely/terms/`、`/legal/rely/privacy/`，补充页为 `usage/` 和 `providers/`。页面无需登录，无跟踪脚本，使用首页导航及单栏正文；相关文件在页尾提供普通链接。
 
-当前版本 **v0.1-draft**。正文源文件在该版本目录的四份 Markdown 中，HTML 由 `scripts/build-rely-legal.py` 生成，不直接修改生成的正文。知识库原始协议未被改写。
+核心协议版本为 **v1.0**，正文和摘要在 `legal/rely/manifest.json` 登记，与应用 `src/contracts/legal-catalog.json` 一致。已接受版本的 Markdown、摘要及存档不得原地重写；正文实质变化需要新建版本，并在处理前完成告知及必要的重新确认。
 
-2026-10-11 页面样式统一为首页使用的 `css/site.css` 和 `css/brand.css`，协议专用样式仅作用于 `.page-legal`。固定入口不展示封面的草稿版本、审阅说明和待填写生效日期，将起草日期显示为更新日期；协议条款、处理清单中的实际待确认字段均未改动，也未声称已经生效。历史入口保留完整封面及原文。Markdown、manifest、摘要及应用 catalog 保持不变；页面展示调整不能替代供应商核实、正式定稿或开启登录门禁。正式版本继续显示完整版本与生效日期，不经过上述封面处理。
+第三方服务清单单独在 `legal/rely/supplements.json` 登记，当前来源为 `versions/providers-20261011/providers.md`。它不增加登录勾选项，也不改变核心协议的版本和组合摘要。补充清单事实更新不等于可以改变原隐私政策承诺；重大接收方或处理范围变化仍需更新核心政策及履行必要程序。原 `v0.1-draft` 文件和存档保留。
 
-页面采用单栏正文，只保留标题、日期、条款和文内链接，不设置面包屑、顶部协议切换栏或侧边目录。相关协议以普通文字链接放在页尾；协议总入口为普通链接列表。首页品牌导航保持一致，桌面和手机使用同一份正文。
+本次核实清单列出当前接入地址、用途、数据范围、服务方资料和仍未取得的说明，移除填空模板。图片实际处理链路、部分服务留存与禁止训练安排，以及备份清理期限尚未全部核实；不得将本次补充页发布等同于完整合规上线验收。
 
-用户协议和隐私政策的固定入口在开头保留责任主体说明，将原封面的公司地址与联系邮箱移至正文末尾的“联系我们”，集中列出公司名称、地址和邮箱。此项仅调整公开页面的信息位置，不修改条款、版本原文、摘要或应用 catalog；历史存档保留原文位置。
-
-移动菜单仅使用 `legal/rely/legal.js`，不加载员工入口、登录、产品或跟踪脚本。生成器给协议 CSS/JS 添加内容摘要参数，以免更新后浏览器继续使用旧样式。
+HTML 由 `scripts/build-rely-legal.py` 生成，不直接编辑正文。生成器检查核心两份及独立补充来源摘要，拒绝正式文本中的填空模板，并核对固定入口和存档页面是否过期。公司名称、地址和客服邮箱在文末集中展示。
 
 维护命令：
 
@@ -20,6 +18,6 @@ python3 scripts/build-rely-legal.py --check
 python3 scripts/build-rely-legal.py --check --app-catalog /path/to/nutritionlive/src/contracts/legal-catalog.json
 ```
 
-定稿时新建版本目录，核实正文中的运营与供应商信息，移除待填写项，填写 ISO 生效时间。manifest 中的逐份 SHA-256 按 Markdown 原始 UTF-8 字节计算；bundleHash 为按 documents 顺序排列的 `[id, sha256]` 数组使用紧凑 JSON 序列化后的 SHA-256。应用仓库 catalog 与 manifest 内容必须一致。生成器会拒绝摘要不匹配或残留待填写内容的正式版本。
+核心 bundleHash 为按 documents 顺序排列的 `[id, sha256]` 数组使用紧凑 JSON 序列化后的 SHA-256；每份 sha256 按原 Markdown UTF-8 字节计算。新增补充版本也须登记摘要并保留旧存档。
 
-已正式使用的版本正文和摘要保持不变，更新时保留原存档。先发布官网并检查匿名访问及所有链接，再在 Rely 启用对应版本。现有发布脚本包含这些 HTML/CSS/JSON；Markdown 和 scripts/docs 不进入站点发布包。普通 GitHub 推送不会发布生产官网。
+发布前检查匿名访问、完整文本和所有链接。Markdown、scripts/docs 不进入站点发布包；普通 GitHub 推送不会更新线上官网，需要另运行 `python3 scripts/deploy.py` 并核对发布 SHA、HTTPS 及业务接口。仅显示形式调整不能代替事实核验。

@@ -11,6 +11,8 @@ def inline(text):
     for title, target in TITLE_LINKS.items():
         text = text.replace(title, f'<a href="{target}">{title}</a>')
     text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
+    text = re.sub(r"\[([^\]]+)\]\((https://[^\s)]+)\)",
+        r'<a href="\2" target="_blank" rel="noopener noreferrer">\1</a>', text)
     return text
 
 def render_md(source):
@@ -190,13 +192,36 @@ def generated():
             result[(archive if archived else LEGAL)/ident/"index.html"]=shell('Rely '+doc['title'],content,assets,catalog['status']=='published')
     digest=hashlib.sha256(json.dumps(pairs,separators=(',',':')).encode()).hexdigest()
     assert digest==catalog["bundleHash"], "Bundle changed"
+    # Supplementary disclosure changes do not rewrite an accepted core agreement.
+    supplements=json.loads((LEGAL / "supplements.json").read_text())
+    supplement_ids=[doc["id"] for doc in supplements["documents"]]
+    assert len(supplement_ids)==len(set(supplement_ids)), "Duplicate supplement"
+    for doc in supplements["documents"]:
+        assert doc["status"]=="published", "Unpublished supplement"
+        ident=doc["id"]
+        supplement_version=doc["version"]
+        assert ident in ["usage","providers"] and ident not in identifiers
+        assert re.fullmatch(r"[a-zA-Z0-9.-]+",supplement_version)
+        folder=LEGAL/"versions"/supplement_version
+        assert doc["url"]=="https://cloudsequ.com/legal/rely/"+ident+"/"
+        assert doc["archiveUrl"]=="https://cloudsequ.com/legal/rely/versions/"+supplement_version+"/"+ident+"/"
+        raw=(folder/(ident+".md")).read_bytes()
+        assert hashlib.sha256(raw).hexdigest()==doc["sha256"], "Supplement changed: "+ident
+        source=raw.decode("utf-8")
+        assert not re.search(r"草稿|正式发布时填写|待填写|【(?:填写|补充|核对|补齐)",source), "Unfinished supplement: "+ident
+        TITLE_LINKS.clear()
+        TITLE_LINKS.update({"《Rely 隐私政策》":"/legal/rely/privacy/"})
+        content,_=render_md(source)
+        for archived in [False,True]:
+            history='' if archived else '<p class="document-history"><a href="'+escape(doc['archiveUrl'])+'">查看本版存档</a></p>'
+            result[(folder if archived else LEGAL)/ident/"index.html"]=shell('Rely '+doc['title'],'<main id="main" tabindex="-1">'+content+history+'</main>',assets,True)
     intro='<main id="main" tabindex="-1"><h1>Rely 协议与隐私政策</h1><ul class="document-list">'
     intro+=''.join('<li><a href="'+d['id']+'/">'+escape(d['title'])+'</a></li>' for d in catalog['documents'])+'</ul></main>'
     result[LEGAL/"index.html"]=shell('Rely 协议与隐私政策',intro,assets,published=catalog['status']=='published')
     if catalog["status"]=="published":
         assert catalog["effectiveAt"], "Published policies require a date"
         for p in archive.glob("*.md"):
-            assert not any(x in p.read_text() for x in ["草稿", "正式发布时填写", "待填写"]), "Unreviewed text cannot be published"
+            assert not re.search(r"草稿|正式发布时填写|待填写|【(?:填写|补充|核对|补齐)",p.read_text()), "Unreviewed text cannot be published"
     return result,catalog
 
 def main():
