@@ -18,6 +18,7 @@
   --mf-nav-hover: #eeeeee;
   --mf-nav-control: #444444;
   --mf-nav-control-hover: #e4e4e4;
+  --site-nav-height: 72px;
   --mf-page-max: 1232px;
   --mf-page-gutter: 32px;
   --mf-radius: 16px;
@@ -41,7 +42,7 @@ html { scroll-behavior: smooth; }
 
 body.mf-site {
   margin: 0;
-  padding-top: 88px;
+  padding-top: var(--site-nav-height);
   overflow-x: hidden;
   background: var(--mf-background);
   color: var(--mf-foreground);
@@ -53,6 +54,8 @@ body.mf-site {
 }
 
 body.mf-site::selection { background: var(--mf-foreground); color: var(--mf-background); }
+
+body.mf-site section[id] { scroll-margin-top: calc(var(--site-nav-height) + 12px); }
 
 body.mf-site .container {
   width: min(var(--mf-page-max), calc(100% - (var(--mf-page-gutter) * 2)));
@@ -113,7 +116,7 @@ body.page-home.motion-ready .product-card.rd4 { --reveal-delay: 120ms; }
 /*
  * Navigation
  * SOURCE: Typeless SiteHeader.tsx:11-55.
- * Fixed 88px white shell, 1280px inner width, centered rounded nav items.
+ * Fixed white shell, 1280px inner width, centered rounded nav items.
  */
 body.mf-site nav,
 body.mf-site nav.is-scrolled,
@@ -126,7 +129,7 @@ body.mf-site nav.scrolled {
   z-index: 1211;
   width: 100%;
   max-width: none;
-  height: 88px;
+  height: var(--site-nav-height);
   margin: 0;
   border: 0;
   border-bottom: 0;
@@ -157,8 +160,8 @@ body.mf-site .nav-inner {
   position: relative;
   width: min(1280px, calc(100% - 160px));
   max-width: 1280px !important;
-  height: 88px;
-  min-height: 88px;
+  height: var(--site-nav-height);
+  min-height: var(--site-nav-height);
   margin-inline: auto;
   padding-inline: 0;
   display: flex;
@@ -1268,7 +1271,7 @@ body.page-home .language-popover .lang-btn:focus-visible {
 
   body.mf-site .nav-links {
     position: fixed;
-    top: 88px;
+    top: var(--site-nav-height);
     right: 0;
     left: 0;
     display: none;

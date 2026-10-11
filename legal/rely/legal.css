@@ -8,7 +8,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 .skip:focus { top: 14px; }
 .legal-container { width: min(900px, calc(100% - 48px)); margin-inline: auto; }
 main { min-width: 0; margin-block: 40px 64px; }
-h1, h2, h3 { color: var(--mf-foreground); font-weight: 600; line-height: 1.5; scroll-margin-top: 112px; }
+h1, h2, h3 { color: var(--mf-foreground); font-weight: 600; line-height: 1.5; scroll-margin-top: calc(var(--site-nav-height) + 24px); }
 h1 { font-size: 30px; text-align: center; margin: 0 0 28px; }
 h2 { font-size: 22px; margin: 32px 0 16px; }
 h3 { font-size: 18px; margin: 24px 0 12px; }

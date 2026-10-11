@@ -317,7 +317,7 @@
     #back-to-top { bottom: 20px; right: 20px; }
   }
 </style>
-<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/site.css?v=20261011-nav72">
 <link rel="stylesheet" href="/css/brand.css?v=20260928-logo19-spacing2">
 </head>
 <body class="mf-site page-home">
@@ -698,7 +698,7 @@ window.addEventListener('scroll', () => {
   // Active nav link
   let current = '';
   sections.forEach(section => {
-    const top = section.offsetTop - 100;
+    const top = section.offsetTop - nav.offsetHeight - 12;
     if (window.scrollY >= top) current = section.id;
   });
   navLinks.forEach(a => {

@@ -109,7 +109,7 @@ def shell(title, content, assets, published=False):
         '<meta name="theme-color" content="#ffffff">'
         '<title>'+escape(title)+' · 序动科技</title>'
         '<link rel="icon" type="image/svg+xml" href="/brand/favicon-19.svg">'
-        '<link rel="stylesheet" href="/css/site.css">'
+        '<link rel="stylesheet" href="/css/site.css?v=20261011-nav72">'
         '<link rel="stylesheet" href="/css/brand.css?v=20260928-logo19-spacing2">'
         '<link rel="stylesheet" href="/legal/rely/legal.css?v='+assets['css']+'">'
         '<script src="/legal/rely/legal.js?v='+assets['js']+'" defer></script>'
