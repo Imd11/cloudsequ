@@ -101,7 +101,7 @@ def public_text(source):
     cover = re.sub(r"^> .*(?:本稿供审阅|填制稿).*\n", "", cover, flags=re.M)
     return cover + "\n## " + body
 
-def shell(title, content, assets, navigation="", archived=False, published=False):
+def shell(title, content, assets, published=False):
     return ('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
         '<meta name="referrer" content="no-referrer">'
@@ -128,17 +128,14 @@ def shell(title, content, assets, navigation="", archived=False, published=False
         'aria-label="展开菜单" aria-controls="navLinks" aria-expanded="false">'
         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
         '<path d="M3 12h18M3 6h18M3 18h18"/></svg></button></div></div></nav>'
-        '<div class="legal-container"><div class="legal-breadcrumb">'
-        '<a href="/">首页</a><span aria-hidden="true">/</span>'
-        '<a href="/legal/rely/">Rely 协议与隐私政策</a>'
-        +('<span class="archive-label">历史版本</span>' if archived else '')+'</div>'
-        +navigation+content+'</div>'
-        '<footer class="legal-footer"><div class="legal-container footer-inner">'
-        '<div><div class="footer-brand-text"><img class="xudong-symbol" src="/brand/cloud-motion-19.png" '
-        'alt="" width="72" height="36"><span class="xudong-wordmark">序动科技</span></div>'
-        '<p>北京云象序动科技有限公司</p></div>'
-        '<div class="footer-contact"><span>客户支持</span>'
-        '<a href="mailto:support@cloudsequ.com">support@cloudsequ.com</a></div>'
+        '<div class="legal-container">'+content+'</div>'
+        '<footer class="legal-footer"><div class="legal-container">'
+        '<div class="legal-links" aria-label="相关协议">'
+        '<a href="/legal/rely/terms/">用户协议</a>'
+        '<a href="/legal/rely/privacy/">隐私政策</a>'
+        '<a href="/legal/rely/usage/">AI 内容使用规范</a>'
+        '<a href="/legal/rely/providers/">第三方服务清单</a></div>'
+        '<p>北京云象序动科技有限公司 · <a href="mailto:support@cloudsequ.com">support@cloudsequ.com</a></p>'
         '</div></footer></body></html>\n')
 
 def generated():
@@ -166,19 +163,14 @@ def generated():
             TITLE_LINKS.clear()
             TITLE_LINKS.update({"《Rely 用户协议》":prefix+"terms/", "《Rely 隐私政策》":prefix+"privacy/", "《Rely AI 内容使用规范》":prefix+"usage/", "《Rely 第三方服务与个人信息处理清单》":prefix+"providers/"})
             source=raw.decode("utf-8")
-            content,toc=render_md(public_text(source) if not archived and catalog['status']=='draft' else source)
-            sidebar='<nav class="toc" aria-label="本页目录"><span>本页目录</span>'+"".join('<a href="#'+a+'">'+escape(t)+'</a>' for a,t in toc)+'</nav>'
-            nav='<nav class="top-nav" aria-label="协议页面">'+''.join(
-                '<a href="'+prefix+d['id']+'/"'+(' aria-current="page"' if d['id']==ident else '')+'>'+escape(d['title'])+'</a>'
-                for d in catalog['documents'])+'</nav>'
+            content,_=render_md(public_text(source) if not archived and catalog['status']=='draft' else source)
             history='' if archived else '<p class="document-history"><a href="'+escape(doc['archiveUrl'])+'">查看本版存档</a></p>'
-            content='<div class="layout has-toc">'+sidebar+'<main id="main" tabindex="-1">'+content+history+'</main></div>'
-            result[(archive if archived else LEGAL)/ident/"index.html"]=shell('Rely '+doc['title'],content,assets,nav,archived,catalog['status']=='published')
+            content='<main id="main" tabindex="-1">'+content+history+'</main>'
+            result[(archive if archived else LEGAL)/ident/"index.html"]=shell('Rely '+doc['title'],content,assets,catalog['status']=='published')
     digest=hashlib.sha256(json.dumps(pairs,separators=(',',':')).encode()).hexdigest()
     assert digest==catalog["bundleHash"], "Bundle changed"
-    descriptions={'terms':'账号使用、服务规则与双方的权利义务。','privacy':'个人信息的收集、使用、保护与您的权利。','usage':'AI 生成内容的使用要求与发布注意事项。','providers':'技术服务与个人信息处理范围。'}
-    intro='<main class="legal-index" id="main" tabindex="-1"><span class="eyebrow">RELY</span><h1>协议与隐私政策</h1><p class="intro">了解 Rely 的服务规则、个人信息保护与 AI 内容使用要求。</p><div class="document-list">'
-    intro+=''.join('<a class="document-link" href="'+d['id']+'/"><div><h2>'+escape(d['title'])+'</h2><p>'+descriptions[d['id']]+'</p></div><span aria-hidden="true">↗</span></a>' for d in catalog['documents'])+'</div></main>'
+    intro='<main id="main" tabindex="-1"><h1>Rely 协议与隐私政策</h1><ul class="document-list">'
+    intro+=''.join('<li><a href="'+d['id']+'/">'+escape(d['title'])+'</a></li>' for d in catalog['documents'])+'</ul></main>'
     result[LEGAL/"index.html"]=shell('Rely 协议与隐私政策',intro,assets,published=catalog['status']=='published')
     if catalog["status"]=="published":
         assert catalog["effectiveAt"], "Published policies require a date"
