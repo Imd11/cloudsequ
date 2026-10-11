@@ -101,6 +101,19 @@ def public_text(source):
     cover = re.sub(r"^> .*(?:本稿供审阅|填制稿).*\n", "", cover, flags=re.M)
     return cover + "\n## " + body
 
+def move_public_contact(source):
+    """Group existing cover contact details at the end without changing the archive."""
+    cover, body = source.split("\n## ", 1)
+    contact = re.search(
+        r"^公司注册地址：[^\n]+\n[^\n]*邮箱：support@cloudsequ\.com。\n",
+        cover, flags=re.M,
+    )
+    if not contact:
+        return source
+    cover = cover[:contact.start()] + cover[contact.end():]
+    return (cover + "\n## " + body.rstrip() + "\n\n## 联系我们\n\n"
+        "公司名称：北京云象序动科技有限公司。  \n" + contact[0])
+
 def shell(title, content, assets, published=False):
     return ('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -163,7 +176,12 @@ def generated():
             TITLE_LINKS.clear()
             TITLE_LINKS.update({"《Rely 用户协议》":prefix+"terms/", "《Rely 隐私政策》":prefix+"privacy/", "《Rely AI 内容使用规范》":prefix+"usage/", "《Rely 第三方服务与个人信息处理清单》":prefix+"providers/"})
             source=raw.decode("utf-8")
-            content,_=render_md(public_text(source) if not archived and catalog['status']=='draft' else source)
+            if not archived:
+                if catalog['status']=='draft':
+                    source=public_text(source)
+                if ident in ['terms','privacy']:
+                    source=move_public_contact(source)
+            content,_=render_md(source)
             history='' if archived else '<p class="document-history"><a href="'+escape(doc['archiveUrl'])+'">查看本版存档</a></p>'
             content='<main id="main" tabindex="-1">'+content+history+'</main>'
             result[(archive if archived else LEGAL)/ident/"index.html"]=shell('Rely '+doc['title'],content,assets,catalog['status']=='published')
