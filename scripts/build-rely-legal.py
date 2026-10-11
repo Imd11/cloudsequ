@@ -70,7 +70,7 @@ def render_md(source):
         if line.startswith("> "):
             flush()
             close_list()
-            pieces.append(f'<aside class="draft-note">{inline(line[2:])}</aside>')
+            pieces.append(f'<aside class="document-note">{inline(line[2:])}</aside>')
             i += 1
             continue
         item = re.match(r"^(?:([-]) |(\d+)\. )(.+)$", line)
@@ -92,6 +92,55 @@ def render_md(source):
     close_list()
     return "\n".join(pieces), toc
 
+def public_text(source):
+    """Remove editorial cover notes, not agreement clauses or the original archive."""
+    cover, body = source.split("\n## ", 1)
+    cover = re.sub(r"^版本：.*\n", "", cover, flags=re.M)
+    cover = re.sub(r"^起草日期：", "更新日期：", cover, flags=re.M)
+    cover = re.sub(r"^生效日期：正式发布时填写\n", "", cover, flags=re.M)
+    cover = re.sub(r"^> .*(?:本稿供审阅|填制稿).*\n", "", cover, flags=re.M)
+    return cover + "\n## " + body
+
+def shell(title, content, assets, navigation="", archived=False, published=False):
+    return ('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        '<meta name="referrer" content="no-referrer">'
+        +('' if published else '<meta name="robots" content="noindex,nofollow">')+
+        '<meta name="theme-color" content="#ffffff">'
+        '<title>'+escape(title)+' · 序动科技</title>'
+        '<link rel="icon" type="image/svg+xml" href="/brand/favicon-19.svg">'
+        '<link rel="stylesheet" href="/css/site.css">'
+        '<link rel="stylesheet" href="/css/brand.css?v=20260928-logo19-spacing2">'
+        '<link rel="stylesheet" href="/legal/rely/legal.css?v='+assets['css']+'">'
+        '<script src="/legal/rely/legal.js?v='+assets['js']+'" defer></script>'
+        '</head><body class="mf-site page-legal">'
+        '<a class="skip" href="#main">跳至正文</a>'
+        '<nav id="nav" aria-label="主导航"><div class="nav-inner">'
+        '<a href="/" class="nav-logo" aria-label="序动科技首页">'
+        '<img class="xudong-symbol" src="/brand/cloud-motion-19.png" alt="" width="72" height="36">'
+        '<span class="xudong-wordmark">序动科技</span></a>'
+        '<ul class="nav-links" id="navLinks">'
+        '<li><a href="/about/">关于我们</a></li>'
+        '<li><a href="/#products">产品</a></li>'
+        '<li><a href="/manifesto/">我们的主张</a></li>'
+        '<li><a href="/ai-club/">AI 研习社</a></li></ul>'
+        '<div class="nav-right"><button class="nav-toggle" id="navToggle" type="button" '
+        'aria-label="展开菜单" aria-controls="navLinks" aria-expanded="false">'
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
+        '<path d="M3 12h18M3 6h18M3 18h18"/></svg></button></div></div></nav>'
+        '<div class="legal-container"><div class="legal-breadcrumb">'
+        '<a href="/">首页</a><span aria-hidden="true">/</span>'
+        '<a href="/legal/rely/">Rely 协议与隐私政策</a>'
+        +('<span class="archive-label">历史版本</span>' if archived else '')+'</div>'
+        +navigation+content+'</div>'
+        '<footer class="legal-footer"><div class="legal-container footer-inner">'
+        '<div><div class="footer-brand-text"><img class="xudong-symbol" src="/brand/cloud-motion-19.png" '
+        'alt="" width="72" height="36"><span class="xudong-wordmark">序动科技</span></div>'
+        '<p>北京云象序动科技有限公司</p></div>'
+        '<div class="footer-contact"><span>客户支持</span>'
+        '<a href="mailto:support@cloudsequ.com">support@cloudsequ.com</a></div>'
+        '</div></footer></body></html>\n')
+
 def generated():
     catalog=json.loads((LEGAL / "manifest.json").read_text())
     version=catalog["version"]
@@ -102,8 +151,7 @@ def generated():
     assert len(catalog["documents"]) == 4
     pairs=[]
     result={}
-    nav="".join('<a href="'+escape(d["url"])+ '">'+escape(d["title"])+ '</a>' for d in catalog["documents"])
-    notice="草稿 · "+escape(version)+" · 尚未发布生效" if catalog["status"]=="draft" else "版本："+escape(version)+" · 生效日期："+escape(catalog["effectiveAt"])
+    assets={kind:hashlib.sha256((LEGAL/('legal.'+kind)).read_bytes()).hexdigest()[:12] for kind in ['css','js']}
     for doc in catalog["documents"]:
         ident=doc["id"]
         assert ident in ["terms","privacy","usage","providers"]
@@ -117,15 +165,21 @@ def generated():
             prefix="/legal/rely/versions/"+version+"/" if archived else "/legal/rely/"
             TITLE_LINKS.clear()
             TITLE_LINKS.update({"《Rely 用户协议》":prefix+"terms/", "《Rely 隐私政策》":prefix+"privacy/", "《Rely AI 内容使用规范》":prefix+"usage/", "《Rely 第三方服务与个人信息处理清单》":prefix+"providers/"})
-            content,toc=render_md(raw.decode("utf-8"))
+            source=raw.decode("utf-8")
+            content,toc=render_md(public_text(source) if not archived and catalog['status']=='draft' else source)
             sidebar='<nav class="toc" aria-label="本页目录"><span>本页目录</span>'+"".join('<a href="#'+a+'">'+escape(t)+'</a>' for a,t in toc)+'</nav>'
-            page='<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer">'+('<meta name="robots" content="noindex,nofollow">' if catalog["status"]=="draft" else '')+'<title>Rely '+escape(doc["title"])+' · 云象序动</title><link rel="stylesheet" href="/legal/rely/legal.css"></head><body><a class="skip" href="#main">跳至正文</a><header class="site-header"><div class="header-inner"><a class="brand" href="/">云象序动<span>Rely</span></a><a href="mailto:support@cloudsequ.com">联系我们</a></div></header><div class="review-banner">'+notice+'</div><nav class="top-nav" aria-label="协议页面">'+nav+'</nav><div class="layout has-toc">'+sidebar+'<main id="main" tabindex="-1">'+content+'</main></div><footer><span>北京云象序动科技有限公司</span><a href="mailto:support@cloudsequ.com">support@cloudsequ.com</a><a href="'+escape(doc["archiveUrl"])+'">本版存档</a></footer></body></html>'
-            result[(archive if archived else LEGAL)/ident/"index.html"]=page+"\n"
+            nav='<nav class="top-nav" aria-label="协议页面">'+''.join(
+                '<a href="'+prefix+d['id']+'/"'+(' aria-current="page"' if d['id']==ident else '')+'>'+escape(d['title'])+'</a>'
+                for d in catalog['documents'])+'</nav>'
+            history='' if archived else '<p class="document-history"><a href="'+escape(doc['archiveUrl'])+'">查看本版存档</a></p>'
+            content='<div class="layout has-toc">'+sidebar+'<main id="main" tabindex="-1">'+content+history+'</main></div>'
+            result[(archive if archived else LEGAL)/ident/"index.html"]=shell('Rely '+doc['title'],content,assets,nav,archived,catalog['status']=='published')
     digest=hashlib.sha256(json.dumps(pairs,separators=(',',':')).encode()).hexdigest()
     assert digest==catalog["bundleHash"], "Bundle changed"
-    intro='<h1>Rely 协议与隐私政策</h1><p>'+notice+'</p>'
-    intro+=''.join('<p><a href="'+d['id']+'/">'+escape(d['title'])+'</a></p>' for d in catalog['documents'])
-    result[LEGAL/"index.html"]='<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rely 协议与隐私政策 · 云象序动</title><link rel="stylesheet" href="/legal/rely/legal.css"></head><body><div class="layout"><main>'+intro+'</main></div></body></html>\n'
+    descriptions={'terms':'账号使用、服务规则与双方的权利义务。','privacy':'个人信息的收集、使用、保护与您的权利。','usage':'AI 生成内容的使用要求与发布注意事项。','providers':'技术服务与个人信息处理范围。'}
+    intro='<main class="legal-index" id="main" tabindex="-1"><span class="eyebrow">RELY</span><h1>协议与隐私政策</h1><p class="intro">了解 Rely 的服务规则、个人信息保护与 AI 内容使用要求。</p><div class="document-list">'
+    intro+=''.join('<a class="document-link" href="'+d['id']+'/"><div><h2>'+escape(d['title'])+'</h2><p>'+descriptions[d['id']]+'</p></div><span aria-hidden="true">↗</span></a>' for d in catalog['documents'])+'</div></main>'
+    result[LEGAL/"index.html"]=shell('Rely 协议与隐私政策',intro,assets,published=catalog['status']=='published')
     if catalog["status"]=="published":
         assert catalog["effectiveAt"], "Published policies require a date"
         for p in archive.glob("*.md"):
