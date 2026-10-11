@@ -158,7 +158,9 @@ def generated():
         raise ValueError("Invalid version path")
     archive=LEGAL / "versions" / version
     assert catalog["status"] in ["draft","published"]
-    assert len(catalog["documents"]) == 4
+    identifiers = [doc["id"] for doc in catalog["documents"]]
+    assert len(identifiers) == len(set(identifiers))
+    assert {"terms", "privacy"}.issubset(identifiers)
     pairs=[]
     result={}
     assets={kind:hashlib.sha256((LEGAL/('legal.'+kind)).read_bytes()).hexdigest()[:12] for kind in ['css','js']}
@@ -174,7 +176,8 @@ def generated():
         for archived in [False,True]:
             prefix="/legal/rely/versions/"+version+"/" if archived else "/legal/rely/"
             TITLE_LINKS.clear()
-            TITLE_LINKS.update({"《Rely 用户协议》":prefix+"terms/", "《Rely 隐私政策》":prefix+"privacy/", "《Rely AI 内容使用规范》":prefix+"usage/", "《Rely 第三方服务与个人信息处理清单》":prefix+"providers/"})
+            titles = {"terms":"《Rely 用户协议》", "privacy":"《Rely 隐私政策》", "usage":"《Rely AI 内容使用规范》", "providers":"《Rely 第三方服务与个人信息处理清单》"}
+            TITLE_LINKS.update({title:(prefix if ident in identifiers else "/legal/rely/")+ident+"/" for ident,title in titles.items()})
             source=raw.decode("utf-8")
             if not archived:
                 if catalog['status']=='draft':
@@ -210,5 +213,5 @@ def main():
         else:
             path.parent.mkdir(parents=True,exist_ok=True)
             path.write_text(html)
-    print("Rely: 4 source hashes, bundle and 9 pages verified" if args.check else "Rely: 9 pages generated")
+    print(f"Rely: {len(catalog['documents'])} source hashes, bundle and {len(files)} pages " + ("verified" if args.check else "generated"))
 if __name__=="__main__": main()
