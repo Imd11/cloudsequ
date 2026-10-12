@@ -25,9 +25,6 @@ th, td { border: 1px solid var(--mf-border); padding: 12px; text-align: left; ve
 th { background: var(--mf-card); font-weight: 600; }
 code { font-family: ui-monospace, monospace; font-size: .9em; }
 .document-list { padding-left: 24px; }
-.legal-footer { padding-block: 24px; font-size: 13px; color: #666; }
-.legal-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.legal-footer p { margin-bottom: 0; }
 @media (max-width: 520px) {
   .legal-container { width: calc(100% - 40px); }
   body.page-legal { font-size: 15px; }
@@ -38,7 +35,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print {
   body.page-legal { padding-top: 0; background: white; }
-  #nav, .skip, .legal-footer, .document-history { display: none !important; }
+  #nav, .skip, .site-footer, .document-history { display: none !important; }
   .legal-container { width: 100%; max-width: none; }
   main { margin: 0; }
   .table-wrap { overflow: visible; }

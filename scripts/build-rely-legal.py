@@ -116,6 +116,26 @@ def move_public_contact(source):
     return (cover + "\n## " + body.rstrip() + "\n\n## 联系我们\n\n"
         "公司名称：北京云象序动科技有限公司。  \n" + contact[0])
 
+def site_footer():
+    """Reuse the homepage footer; keep document links and its existing employee flow."""
+    home = (ROOT / "index.html").read_text()
+    footer = re.search(r'<footer class="site-footer">[\s\S]*?</footer>', home)
+    assert footer, "Homepage footer missing"
+    html = footer[0]
+    html = html.replace(
+        '<a href="/legal/rely/">Rely 协议与隐私政策</a>',
+        '<a href="/legal/rely/terms/">用户协议</a>'
+        '<a href="/legal/rely/privacy/">隐私政策</a>'
+        '<a href="/legal/rely/usage/">AI 内容使用规范</a>'
+        '<a href="/legal/rely/providers/">第三方服务清单</a>',
+    )
+    # The homepage already owns authentication; document pages need no login scripts.
+    html = html.replace(
+        '<button class="portal-employee-link" onclick="handleEmployeePortal()">员工入口</button>',
+        '<a class="portal-employee-link" href="/#employee-portal">员工入口</a>',
+    )
+    return html
+
 def shell(title, content, assets, published=False):
     return ('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -124,7 +144,7 @@ def shell(title, content, assets, published=False):
         '<meta name="theme-color" content="#ffffff">'
         '<title>'+escape(title)+' · 序动科技</title>'
         '<link rel="icon" type="image/svg+xml" href="/brand/favicon-19.svg">'
-        '<link rel="stylesheet" href="/css/site.css?v=20261011-nav72">'
+        '<link rel="stylesheet" href="/css/site.css?v=20261012-footer">'
         '<link rel="stylesheet" href="/css/brand.css?v=20260928-logo19-spacing2">'
         '<link rel="stylesheet" href="/legal/rely/legal.css?v='+assets['css']+'">'
         '<script src="/legal/rely/legal.js?v='+assets['js']+'" defer></script>'
@@ -144,14 +164,7 @@ def shell(title, content, assets, published=False):
         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
         '<path d="M3 12h18M3 6h18M3 18h18"/></svg></button></div></div></nav>'
         '<div class="legal-container">'+content+'</div>'
-        '<footer class="legal-footer"><div class="legal-container">'
-        '<div class="legal-links" aria-label="相关协议">'
-        '<a href="/legal/rely/terms/">用户协议</a>'
-        '<a href="/legal/rely/privacy/">隐私政策</a>'
-        '<a href="/legal/rely/usage/">AI 内容使用规范</a>'
-        '<a href="/legal/rely/providers/">第三方服务清单</a></div>'
-        '<p>北京云象序动科技有限公司 · <a href="mailto:support@cloudsequ.com">support@cloudsequ.com</a></p>'
-        '</div></footer></body></html>\n')
+        + site_footer() + '</body></html>\n')
 
 def generated():
     catalog=json.loads((LEGAL / "manifest.json").read_text())
@@ -222,6 +235,17 @@ def generated():
         assert catalog["effectiveAt"], "Published policies require a date"
         for p in archive.glob("*.md"):
             assert not re.search(r"草稿|正式发布时填写|待填写|【(?:填写|补充|核对|补齐)",p.read_text()), "Unreviewed text cannot be published"
+    # Older documents keep their exact body and metadata; only the shared footer
+    # and stylesheet cache keys follow the current site presentation.
+    for path in LEGAL.rglob("index.html"):
+        if path in result:
+            continue
+        html = path.read_text()
+        html, count = re.subn(r'<footer\b[\s\S]*?</footer>', lambda _: site_footer(), html)
+        assert count == 1, "Expected one footer: " + str(path)
+        html = re.sub(r'/css/site\.css\?v=[^"\s]+', '/css/site.css?v=20261012-footer', html)
+        html = re.sub(r'/legal/rely/legal\.css\?v=[^"\s]+', '/legal/rely/legal.css?v='+assets['css'], html)
+        result[path] = html
     return result,catalog
 
 def main():
