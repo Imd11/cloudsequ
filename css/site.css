@@ -1100,6 +1100,23 @@ body:is(.page-home, .page-legal) .footer-bottom {
   line-height: 24px;
 }
 
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* MIIT filing link (ICP). Inherits footer color; muted until hover. */
+.footer-icp {
+  color: inherit;
+  opacity: 0.72;
+  text-decoration: none;
+}
+
+.footer-icp:hover,
+.footer-icp:focus-visible { opacity: 1; text-decoration: underline; }
+
 body:is(.page-home, .page-legal) .portal-employee-link {
   padding: 0;
   border: 0;
