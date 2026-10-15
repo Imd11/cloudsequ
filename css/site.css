@@ -1089,7 +1089,8 @@ body:is(.page-home, .page-legal) .footer-col a + a { margin-top: 12px; }
 body:is(.page-home, .page-legal) .footer-col a:hover { padding-left: 0; color: #fff; }
 
 body:is(.page-home, .page-legal) .footer-bottom {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   justify-content: space-between;
   gap: 24px;
@@ -1103,6 +1104,7 @@ body:is(.page-home, .page-legal) .footer-bottom {
 .footer-legal {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
 }
@@ -1112,6 +1114,7 @@ body:is(.page-home, .page-legal) .footer-bottom {
   color: inherit;
   opacity: 0.72;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .footer-icp:hover,
@@ -1129,11 +1132,13 @@ body:is(.page-home, .page-legal) .footer-bottom {
 body.mf-site .footer-meta-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px;
 }
 
 body.mf-site footer .footer-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   justify-content: space-between;
   gap: 24px;
@@ -1248,6 +1253,18 @@ body.page-home .language-popover .lang-btn:focus-visible {
   color: #fff;
 }
 
+@media (max-width: 1100px) {
+  body:is(.page-home, .page-legal) .footer-bottom,
+  body.mf-site footer .footer-inner {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  body.mf-site .footer-meta-actions { justify-content: center; }
+}
+
 @media (max-width: 900px) {
   body.page-home .products-grid,
   body.page-product .product-hero-inner { grid-template-columns: 1fr !important; }
@@ -1358,15 +1375,8 @@ body.page-home .language-popover .lang-btn:focus-visible {
   body.page-home .home-contact-actions .btn-secondary { width: 100%; }
   body:is(.page-home, .page-legal) .footer-grid { grid-template-columns: 1fr; gap: 40px; min-height: 0; padding: 40px 0; }
   body:is(.page-home, .page-legal) .footer-links { gap: 24px; }
-  body:is(.page-home, .page-legal) .footer-bottom { align-items: flex-start; flex-direction: column; gap: 14px; padding-top: 24px; text-align: left; }
+  body:is(.page-home, .page-legal) .footer-bottom { gap: 14px; padding-top: 24px; }
   body.mf-site .footer-meta-actions { flex-wrap: wrap; }
-}
-
-@media (max-width: 640px) {
-  body.mf-site footer .footer-inner {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 }
 
 /* SOURCE: Typeless globals.css:239-247 */

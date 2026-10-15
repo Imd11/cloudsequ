@@ -139,7 +139,7 @@ def shell(title, content, assets, published=False):
         '<meta name="theme-color" content="#ffffff">'
         '<title>'+escape(title)+' · 序动科技</title>'
         '<link rel="icon" type="image/svg+xml" href="/brand/favicon-19.svg">'
-        '<link rel="stylesheet" href="/css/site.css?v=20261015-beian">'
+        '<link rel="stylesheet" href="/css/site.css?v=20261015-footer-center">'
         '<link rel="stylesheet" href="/css/brand.css?v=20260928-logo19-spacing2">'
         '<link rel="stylesheet" href="/legal/rely/legal.css?v='+assets['css']+'">'
         '<script src="/legal/rely/legal.js?v='+assets['js']+'" defer></script>'
@@ -238,7 +238,7 @@ def generated():
         html = path.read_text()
         html, count = re.subn(r'<footer\b[\s\S]*?</footer>', lambda _: site_footer(), html)
         assert count == 1, "Expected one footer: " + str(path)
-        html = re.sub(r'/css/site\.css\?v=[^"\s]+', '/css/site.css?v=20261015-beian', html)
+        html = re.sub(r'/css/site\.css\?v=[^"\s]+', '/css/site.css?v=20261015-footer-center', html)
         html = re.sub(r'/legal/rely/legal\.css\?v=[^"\s]+', '/legal/rely/legal.css?v='+assets['css'], html)
         result[path] = html
     return result,catalog
