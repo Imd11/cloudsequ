@@ -117,7 +117,7 @@ def move_public_contact(source):
         "公司名称：北京云象序动科技有限公司。  \n" + contact[0])
 
 def site_footer():
-    """Reuse the homepage footer; keep document links and its existing employee flow."""
+    """Reuse the public homepage footer and expand its document links."""
     home = (ROOT / "index.html").read_text()
     footer = re.search(r'<footer class="site-footer">[\s\S]*?</footer>', home)
     assert footer, "Homepage footer missing"
@@ -129,11 +129,6 @@ def site_footer():
         '<a href="/legal/rely/usage/">AI 内容使用规范</a>'
         '<a href="/legal/rely/providers/">第三方服务清单</a>',
     )
-    # The homepage already owns authentication; document pages need no login scripts.
-    html = html.replace(
-        '<button class="portal-employee-link" onclick="handleEmployeePortal()">员工入口</button>',
-        '<a class="portal-employee-link" href="/#employee-portal">员工入口</a>',
-    )
     return html
 
 def shell(title, content, assets, published=False):
@@ -144,7 +139,7 @@ def shell(title, content, assets, published=False):
         '<meta name="theme-color" content="#ffffff">'
         '<title>'+escape(title)+' · 序动科技</title>'
         '<link rel="icon" type="image/svg+xml" href="/brand/favicon-19.svg">'
-        '<link rel="stylesheet" href="/css/site.css?v=20261012-footer">'
+        '<link rel="stylesheet" href="/css/site.css?v=20261015-beian">'
         '<link rel="stylesheet" href="/css/brand.css?v=20260928-logo19-spacing2">'
         '<link rel="stylesheet" href="/legal/rely/legal.css?v='+assets['css']+'">'
         '<script src="/legal/rely/legal.js?v='+assets['js']+'" defer></script>'
@@ -243,7 +238,7 @@ def generated():
         html = path.read_text()
         html, count = re.subn(r'<footer\b[\s\S]*?</footer>', lambda _: site_footer(), html)
         assert count == 1, "Expected one footer: " + str(path)
-        html = re.sub(r'/css/site\.css\?v=[^"\s]+', '/css/site.css?v=20261012-footer', html)
+        html = re.sub(r'/css/site\.css\?v=[^"\s]+', '/css/site.css?v=20261015-beian', html)
         html = re.sub(r'/legal/rely/legal\.css\?v=[^"\s]+', '/legal/rely/legal.css?v='+assets['css'], html)
         result[path] = html
     return result,catalog

@@ -31,7 +31,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="js/portal.css">
 
 <!-- Structured Data for SEO -->
 <script type="application/ld+json">
@@ -556,7 +555,6 @@
             <button class="lang-btn" type="button" role="menuitemradio" aria-checked="false" data-lang="zh"><span>中文</span><svg class="language-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
           </div>
         </div>
-        <button class="portal-employee-link" onclick="handleEmployeePortal()">员工入口</button>
       </div>
     </div>
   </div>
@@ -564,7 +562,6 @@
 
 <button id="back-to-top" aria-label="Back to top">↑</button>
 
-<script src="js/auth.js?v=20260928-zh"></script>
 <script>
 const i18n = {
   en: {
@@ -716,28 +713,6 @@ window.addEventListener('scroll', () => {
 document.getElementById('back-to-top').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
-// Employee Portal
-function handleEmployeePortal() {
-  if (window.checkAuth()) {
-    window.location.href = '/portal/';
-  } else {
-    window.showLoginModal(function() {
-      window.location.href = '/portal/';
-    });
-  }
-}
-if (window.location.hash === '#employee-portal') {
-  if (!window.checkAuth()) {
-    setTimeout(function() {
-      window.showLoginModal(function() {
-        window.location.href = '/portal/';
-      });
-    }, 500);
-  } else {
-    window.location.href = '/portal/';
-  }
-}
 
 </script>
 <script src="js/site.js?v=20260928-zh"></script>

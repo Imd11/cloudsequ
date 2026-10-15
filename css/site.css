@@ -1120,23 +1120,6 @@ body:is(.page-home, .page-legal) .footer-bottom {
 .footer-ga { display: inline-flex; align-items: center; gap: 5px; }
 .footer-ga .footer-ga-badge { display: block; height: 15px; width: auto; }
 
-body:is(.page-home, .page-legal) .portal-employee-link {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: #5c5f63;
-  font: inherit;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0;
-  text-transform: none;
-  cursor: pointer;
-  transition: color 200ms;
-}
-
-body:is(.page-home, .page-legal) .portal-employee-link:hover,
-body:is(.page-home, .page-legal) .portal-employee-link:focus-visible { color: rgba(255, 255, 255, .7); }
-
 /*
  * Footer language selector
  * SOURCE: IMD LanguageSelector.tsx:25-92 and PublicFooter.tsx:253-264.
