@@ -1117,6 +1117,9 @@ body:is(.page-home, .page-legal) .footer-bottom {
 .footer-icp:hover,
 .footer-icp:focus-visible { opacity: 1; text-decoration: underline; }
 
+.footer-ga { display: inline-flex; align-items: center; gap: 5px; }
+.footer-ga .footer-ga-badge { display: block; height: 15px; width: auto; }
+
 body:is(.page-home, .page-legal) .portal-employee-link {
   padding: 0;
   border: 0;
